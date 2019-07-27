@@ -48,5 +48,14 @@ namespace ConsultaTratorPecas.Main
         {
 
         }
+
+        private void TbxIdCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Cliente.frmMainCliente main = new Cliente.frmMainCliente();
+                main.ShowDialog();
+            }
+        }
     }
 }

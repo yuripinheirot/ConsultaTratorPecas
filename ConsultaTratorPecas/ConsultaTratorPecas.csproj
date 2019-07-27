@@ -47,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente\dataCliente.cs" />
+    <Compile Include="Cliente\frmMainCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\frmMainCliente.Designer.cs">
+      <DependentUpon>frmMainCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\data.cs" />
     <Compile Include="Main\frmMain.cs">
       <SubType>Form</SubType>
@@ -56,12 +63,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TratorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TratorDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Util\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Util\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Cliente\frmMainCliente.resx">
+      <DependentUpon>frmMainCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +101,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TratorDataSet.xsc">
+      <DependentUpon>TratorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TratorDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TratorDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TratorDataSet.xss">
+      <DependentUpon>TratorDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

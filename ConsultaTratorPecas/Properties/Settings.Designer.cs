@@ -34,5 +34,16 @@ namespace ConsultaTratorPecas.Properties {
                 this["Conexao"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=YURI-NOTE\\SQLEXPRESS02;Initial Catalog=Trator;Persist Security Info=T" +
+            "rue;User ID=sa;Password=master")]
+        public string TratorConnectionString {
+            get {
+                return ((string)(this["TratorConnectionString"]));
+            }
+        }
     }
 }
