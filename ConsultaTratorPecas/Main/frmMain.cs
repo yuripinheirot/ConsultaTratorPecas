@@ -12,6 +12,24 @@ namespace ConsultaTratorPecas.Main
 {
     public partial class frmMain : Form
     {
+        //metodos
+        public void AtualizaDgv()
+        {
+            string cliente()
+            {
+                if (!string.IsNullOrEmpty(tbxIdCliente.Text))
+                {
+                    return "AND cli.codigo = " + tbxIdCliente.Text;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            data.AtualizaDgv(dgvPedidos, cliente(), tbxDataIni.Text, tbxDataFin.Text);
+            lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
+        }
         public frmMain()
         {
             InitializeComponent();
@@ -61,6 +79,11 @@ namespace ConsultaTratorPecas.Main
         private void TbxIdCliente_TextChanged(object sender, EventArgs e)
         {
             tbxNomeCliente.Text = data.NomeCliente(tbxIdCliente.Text);
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            AtualizaDgv();
         }
     }
 }

@@ -60,11 +60,22 @@
       <DependentUpon>frmMainCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\data.cs" />
+    <Compile Include="Main\dsDgvPedidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoProduto\frmPedidoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoProduto\frmPedidoProduto.Designer.cs">
+      <DependentUpon>frmPedidoProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoProduto\frmPedidoProduto.resx">
+      <DependentUpon>frmPedidoProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -102,6 +116,17 @@
     </None>
     <None Include="Cliente\dsCliente.xss">
       <DependentUpon>dsCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Main\dsDgvPedidos.xsc">
+      <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
+    </None>
+    <None Include="Main\dsDgvPedidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDgvPedidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Main\dsDgvPedidos.xss">
+      <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

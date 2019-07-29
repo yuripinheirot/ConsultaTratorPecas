@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
@@ -42,7 +43,17 @@
             this.lblPedidosEnc = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.tbxIdCliente = new System.Windows.Forms.MaskedTextBox();
+            this.dsDgvPedidos = new ConsultaTratorPecas.Main.dsDgvPedidos();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataCadastroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalVendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDgvPedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -61,6 +72,7 @@
             this.dgvPedidos.AllowUserToAddRows = false;
             this.dgvPedidos.AllowUserToDeleteRows = false;
             this.dgvPedidos.AllowUserToOrderColumns = true;
+            this.dgvPedidos.AutoGenerateColumns = false;
             this.dgvPedidos.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -71,6 +83,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoDataGridViewTextBoxColumn,
+            this.dataCadastroDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn,
+            this.vendedorDataGridViewTextBoxColumn,
+            this.totalVendaDataGridViewTextBoxColumn,
+            this.usuarioDataGridViewTextBoxColumn});
+            this.dgvPedidos.DataSource = this.dataTable1BindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,7 +106,7 @@
             this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 24;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(983, 599);
+            this.dgvPedidos.Size = new System.Drawing.Size(983, 585);
             this.dgvPedidos.TabIndex = 5;
             // 
             // label3
@@ -167,6 +187,7 @@
             this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
             // tbxIdCliente
             // 
@@ -180,6 +201,61 @@
             this.tbxIdCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxIdCliente.TextChanged += new System.EventHandler(this.TbxIdCliente_TextChanged);
             this.tbxIdCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbxIdCliente_KeyDown);
+            // 
+            // dsDgvPedidos
+            // 
+            this.dsDgvPedidos.DataSetName = "dsDgvPedidos";
+            this.dsDgvPedidos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.dsDgvPedidos;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // dataCadastroDataGridViewTextBoxColumn
+            // 
+            this.dataCadastroDataGridViewTextBoxColumn.DataPropertyName = "DataCadastro";
+            this.dataCadastroDataGridViewTextBoxColumn.HeaderText = "Data cadastro";
+            this.dataCadastroDataGridViewTextBoxColumn.Name = "dataCadastroDataGridViewTextBoxColumn";
+            this.dataCadastroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.clienteDataGridViewTextBoxColumn.Width = 450;
+            // 
+            // vendedorDataGridViewTextBoxColumn
+            // 
+            this.vendedorDataGridViewTextBoxColumn.DataPropertyName = "vendedor";
+            this.vendedorDataGridViewTextBoxColumn.HeaderText = "Vendedor";
+            this.vendedorDataGridViewTextBoxColumn.Name = "vendedorDataGridViewTextBoxColumn";
+            this.vendedorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalVendaDataGridViewTextBoxColumn
+            // 
+            this.totalVendaDataGridViewTextBoxColumn.DataPropertyName = "TotalVenda";
+            this.totalVendaDataGridViewTextBoxColumn.HeaderText = "Total venda";
+            this.totalVendaDataGridViewTextBoxColumn.Name = "totalVendaDataGridViewTextBoxColumn";
+            this.totalVendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalVendaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // usuarioDataGridViewTextBoxColumn
+            // 
+            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn.HeaderText = "Usuário";
+            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
+            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmMain
             // 
@@ -209,6 +285,8 @@
             this.Text = "Consulta";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDgvPedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +306,13 @@
         public System.Windows.Forms.DateTimePicker tbxDataFin;
         public System.Windows.Forms.Button btnPesquisar;
         public System.Windows.Forms.MaskedTextBox tbxIdCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataCadastroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalVendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dataTable1BindingSource;
+        private dsDgvPedidos dsDgvPedidos;
     }
 }
