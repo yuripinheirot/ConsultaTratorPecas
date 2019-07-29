@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
-            this.tbxIdCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxNomeCliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.tbxDataFin = new System.Windows.Forms.DateTimePicker();
             this.lblPedidosEnc = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.tbxIdCliente = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.btnSair.Location = new System.Drawing.Point(921, 694);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 0;
+            this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sai&r";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.BtnSair_Click);
@@ -87,15 +87,7 @@
             this.dgvPedidos.RowHeadersWidth = 24;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedidos.Size = new System.Drawing.Size(983, 599);
-            this.dgvPedidos.TabIndex = 16;
-            // 
-            // tbxIdCliente
-            // 
-            this.tbxIdCliente.Location = new System.Drawing.Point(13, 25);
-            this.tbxIdCliente.Name = "tbxIdCliente";
-            this.tbxIdCliente.Size = new System.Drawing.Size(67, 20);
-            this.tbxIdCliente.TabIndex = 1;
-            this.tbxIdCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbxIdCliente_KeyDown);
+            this.dgvPedidos.TabIndex = 5;
             // 
             // label3
             // 
@@ -108,6 +100,7 @@
             // 
             // tbxNomeCliente
             // 
+            this.tbxNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxNomeCliente.Location = new System.Drawing.Point(86, 25);
             this.tbxNomeCliente.Name = "tbxNomeCliente";
             this.tbxNomeCliente.ReadOnly = true;
@@ -129,7 +122,7 @@
             this.tbxDataIni.Location = new System.Drawing.Point(467, 25);
             this.tbxDataIni.Name = "tbxDataIni";
             this.tbxDataIni.Size = new System.Drawing.Size(96, 20);
-            this.tbxDataIni.TabIndex = 17;
+            this.tbxDataIni.TabIndex = 2;
             // 
             // label5
             // 
@@ -155,7 +148,7 @@
             this.tbxDataFin.Location = new System.Drawing.Point(570, 25);
             this.tbxDataFin.Name = "tbxDataFin";
             this.tbxDataFin.Size = new System.Drawing.Size(96, 20);
-            this.tbxDataFin.TabIndex = 17;
+            this.tbxDataFin.TabIndex = 3;
             // 
             // lblPedidosEnc
             // 
@@ -171,9 +164,21 @@
             this.btnPesquisar.Location = new System.Drawing.Point(672, 24);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // tbxIdCliente
+            // 
+            this.tbxIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxIdCliente.Location = new System.Drawing.Point(13, 25);
+            this.tbxIdCliente.Mask = "000000";
+            this.tbxIdCliente.Name = "tbxIdCliente";
+            this.tbxIdCliente.PromptChar = ' ';
+            this.tbxIdCliente.Size = new System.Drawing.Size(67, 20);
+            this.tbxIdCliente.TabIndex = 7;
+            this.tbxIdCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxIdCliente.TextChanged += new System.EventHandler(this.TbxIdCliente_TextChanged);
             // 
             // frmMain
             // 
@@ -182,6 +187,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.tbxIdCliente);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.tbxDataFin);
             this.Controls.Add(this.tbxDataIni);
@@ -191,7 +197,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblPedidosEnc);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbxIdCliente);
             this.Controls.Add(this.tbxNomeCliente);
             this.Controls.Add(this.btnSair);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -212,15 +217,15 @@
 
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.DataGridView dgvPedidos;
-        private System.Windows.Forms.TextBox tbxIdCliente;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxNomeCliente;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker tbxDataIni;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker tbxDataFin;
         private System.Windows.Forms.Label lblPedidosEnc;
-        private System.Windows.Forms.Button btnPesquisar;
+        public System.Windows.Forms.TextBox tbxNomeCliente;
+        public System.Windows.Forms.DateTimePicker tbxDataIni;
+        public System.Windows.Forms.DateTimePicker tbxDataFin;
+        public System.Windows.Forms.Button btnPesquisar;
+        public System.Windows.Forms.MaskedTextBox tbxIdCliente;
     }
 }

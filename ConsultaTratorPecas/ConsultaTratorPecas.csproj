@@ -48,6 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente\dataCliente.cs" />
+    <Compile Include="Cliente\dsCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCliente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\frmMainCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,11 +68,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TratorDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TratorDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Util\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +92,17 @@
     <EmbeddedResource Include="Util\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Cliente\dsCliente.xsc">
+      <DependentUpon>dsCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Cliente\dsCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCliente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Cliente\dsCliente.xss">
+      <DependentUpon>dsCliente.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,17 +112,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TratorDataSet.xsc">
-      <DependentUpon>TratorDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TratorDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TratorDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TratorDataSet.xss">
-      <DependentUpon>TratorDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -28,7 +28,7 @@ namespace ConsultaTratorPecas.Cliente
                     "descricao as cliente," +
                     "fone,                " +
                     "Celular,             " +
-                    "[Cpf ou Cgc]         " +
+                    "[Cpf ou Cgc] as CPFCNPJ " +
                     "from clientes       where " + cbxPesquisar + " like '%" + palavra + "%'";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 SqlDataAdapter adapter = new SqlDataAdapter();

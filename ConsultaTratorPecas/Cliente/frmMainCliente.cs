@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConsultaTratorPecas.Main;
 
 namespace ConsultaTratorPecas.Cliente
 {
     public partial class frmMainCliente : Form
     {
+        //instancias
+        frmMain main = null;
+
         //metodos
         void atualizaDgv()
         {
@@ -29,11 +33,17 @@ namespace ConsultaTratorPecas.Cliente
             }
 
             dataCliente.AtualizaDgv(dgvCliente,pesquisar(),tbxPalavra.Text);
+            lblClientesEnc.Text = "Clientes encontrados: " + dgvCliente.RowCount;
 
         }
         public frmMainCliente()
         {
             InitializeComponent();
+        }
+        public frmMainCliente(frmMain main)
+        {
+            InitializeComponent();
+            this.main = main;
         }
 
         private void BtnSair_Click(object sender, EventArgs e)
@@ -73,6 +83,16 @@ namespace ConsultaTratorPecas.Cliente
         private void TbxPalavra_TextChanged(object sender, EventArgs e)
         {
             atualizaDgv();
+        }
+
+        private void BtnInserir_Click(object sender, EventArgs e)
+        {
+            if (main != null)
+            {
+                main.tbxIdCliente.Text = dgvCliente.CurrentRow.Cells[0].Value.ToString();
+                main.tbxNomeCliente.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
+                Close();
+            }
         }
     }
 }

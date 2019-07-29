@@ -46,5 +46,36 @@ namespace ConsultaTratorPecas.Main
 
 
         }
+
+        public static string NomeCliente(string idCliente)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(idCliente)) { return "CLIENTE NÃO ENCONTRADO"; }
+
+                conexao = new SqlConnection(server);
+                conexao.Open();
+                string query = "SELECT DESCRICAO FROM CLIENTES WHERE CODIGO = " + idCliente;
+                SqlCommand cmd = new SqlCommand(query, conexao);
+
+                if (string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())))
+                {
+                    return "CLIENTE NÃO ENCONTRADO";
+                }
+                else
+                {
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
     }
 }
