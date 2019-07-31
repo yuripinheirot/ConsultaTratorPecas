@@ -85,5 +85,15 @@ namespace ConsultaTratorPecas.Main
         {
             AtualizaDgv();
         }
+
+        private void BtnVisualizar_Click(object sender, EventArgs e)
+        {
+            if (dgvPedidos.RowCount > 0)
+            {
+                PedidoProduto.frmPedidoProduto pedido = new PedidoProduto.frmPedidoProduto(this);
+                pedido.tbxPedido.Text = dgvPedidos.CurrentRow.Cells[0].Value.ToString();
+                pedido.ShowDialog();
+            }
+        }
     }
 }
