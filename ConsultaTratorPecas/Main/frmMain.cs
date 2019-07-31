@@ -95,5 +95,14 @@ namespace ConsultaTratorPecas.Main
                 pedido.ShowDialog();
             }
         }
+
+        private void TbxProdutoEst_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Estoque.frmMainProduto produto = new Estoque.frmMainProduto();
+                produto.ShowDialog();
+            }
+        }
     }
 }

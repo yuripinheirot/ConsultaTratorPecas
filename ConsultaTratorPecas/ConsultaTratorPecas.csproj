@@ -59,6 +59,13 @@
     <Compile Include="Cliente\frmMainCliente.Designer.cs">
       <DependentUpon>frmMainCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Estoque\dataProduto.cs" />
+    <Compile Include="Estoque\frmMainProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estoque\frmMainProduto.Designer.cs">
+      <DependentUpon>frmMainProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\data.cs" />
     <Compile Include="Main\dsDgvPedidos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="Cliente\frmMainCliente.resx">
       <DependentUpon>frmMainCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estoque\frmMainProduto.resx">
+      <DependentUpon>frmMainProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
