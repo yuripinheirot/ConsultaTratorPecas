@@ -15,7 +15,23 @@ namespace ConsultaTratorPecas.Estoque
         //metodos
         public void AtualizaDgv()
         {
-
+            string pesquisarPor()
+            {
+                switch (cbxPesquissarPor.Text)
+                {
+                    case "Código":
+                        return "codigo";
+                    case "Descrição":
+                        return "";
+                    case "Marca":
+                        return "";
+                    case "Referência do fornecedor":
+                        return "";
+                    default:
+                        return null;
+                        break;
+                }
+            }
         }
 
         public frmMainProduto()

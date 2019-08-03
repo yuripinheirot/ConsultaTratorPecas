@@ -21,3 +21,4 @@ C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debu
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.pdb
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.Cliente.frmMainCliente.resources
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.PedidoProduto.frmPedidoProduto.resources
+C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.Estoque.frmMainProduto.resources
