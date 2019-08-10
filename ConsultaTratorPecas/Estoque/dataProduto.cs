@@ -21,18 +21,18 @@ namespace ConsultaTratorPecas.Estoque
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
-                "select                                            " +
-                "pdt.codigo,                                       " +
-                "pdt.Descricao as Produto,                         " +
-                "mrc.Descricao as Marca,                           " +
-                "pdt.numero,                                       " +
-                "pdt.unidade,                                      " +
-                "pdt.PrecoVenda,                                   " +
-                "pdt.RefFornecedor,                                " +
-                "pdt.Inativo                                       " +
-                "from produtos pdt                                 " +
-                "inner join Marcas mrc on (pdt.Marca = mrc.Codigo) " +
-                "where " + Inativo + " and " + PesquisarPor + "like '%" + PalavraChave + "%';";
+                "select                                                          " +
+                "pdt.codigo,                                                     " +
+                "pdt.Descricao as Produto,                                       " +
+                "mrc.Descricao as Marca,                                         " +
+                "pdt.numero,                                                     " +
+                "pdt.unidade,                                                    " +
+                "pdt.PrecoVenda,                                                 " +
+                "pdt.RefFornecedor,                                              " +
+                "case pdt.Inativo when 0 then 'S' when 1 then 'N' end as inativo " +
+                "from produtos pdt                                               " +
+                "inner join Marcas mrc on (pdt.Marca = mrc.Codigo)               " +
+                "where " + Inativo + " and " + PesquisarPor + " like '%" + PalavraChave + "%';";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 DataTable table = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter();

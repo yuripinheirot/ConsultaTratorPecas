@@ -60,6 +60,11 @@
       <DependentUpon>frmMainCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Estoque\dataProduto.cs" />
+    <Compile Include="Estoque\dsProduto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProduto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Estoque\frmMainProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +76,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Main\dsPdtCompa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPdtCompa.xsd</DependentUpon>
     </Compile>
     <Compile Include="Main\frmMain.cs">
       <SubType>Form</SubType>
@@ -134,6 +144,17 @@
     <None Include="Cliente\dsCliente.xss">
       <DependentUpon>dsCliente.xsd</DependentUpon>
     </None>
+    <None Include="Estoque\dsProduto.xsc">
+      <DependentUpon>dsProduto.xsd</DependentUpon>
+    </None>
+    <None Include="Estoque\dsProduto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProduto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Estoque\dsProduto.xss">
+      <DependentUpon>dsProduto.xsd</DependentUpon>
+    </None>
     <None Include="Main\dsDgvPedidos.xsc">
       <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
     </None>
@@ -144,6 +165,17 @@
     </None>
     <None Include="Main\dsDgvPedidos.xss">
       <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
+    </None>
+    <None Include="Main\dsPdtCompa.xsc">
+      <DependentUpon>dsPdtCompa.xsd</DependentUpon>
+    </None>
+    <None Include="Main\dsPdtCompa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPdtCompa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Main\dsPdtCompa.xss">
+      <DependentUpon>dsPdtCompa.xsd</DependentUpon>
     </None>
     <None Include="PedidoProduto\dsPedidoProduto.xsc">
       <DependentUpon>dsPedidoProduto.xsd</DependentUpon>

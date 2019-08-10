@@ -12,6 +12,9 @@ namespace ConsultaTratorPecas.Estoque
 {
     public partial class frmMainProduto : Form
     {
+        //instancias
+        Main.frmMain main = null;
+
         //metodos
         public void AtualizaDgv()
         {
@@ -20,29 +23,76 @@ namespace ConsultaTratorPecas.Estoque
                 switch (cbxPesquissarPor.Text)
                 {
                     case "Código":
-                        return "codigo";
+                        return "pdt.codigo";
                     case "Descrição":
-                        return "";
+                        return "pdt.descricao";
                     case "Marca":
-                        return "";
+                        return "mrc.descricao";
                     case "Referência do fornecedor":
-                        return "";
+                        return "pdt.RefFornecedor";
                     default:
                         return null;
-                        break;
                 }
             }
+
+            string inativo()
+            {
+                if (chkInativos.Checked)
+                {
+                    return " pdt.inativo in ('0','1') ";
+                }
+                else
+                {
+                    return " pdt.inativo = 0 ";
+                }
+            }
+
+            dataProduto.AtualizaDgv(dgvProdutos, pesquisarPor(), tbxPalavraChave.Text, inativo());
+            lblEncontrados.Text = "Produtos encontrados: " + dgvProdutos.RowCount;
         }
 
-        public frmMainProduto()
+        public frmMainProduto(Main.frmMain main)
         {
             InitializeComponent();
+            this.main = main;
         }
 
         private void FrmMainProduto_Load(object sender, EventArgs e)
         {
             cbxPesquissarPor.Text = "Descrição";
+            AtualizaDgv();
 
+        }
+
+        private void ChkInativos_CheckedChanged(object sender, EventArgs e)
+        {
+            AtualizaDgv();
+        }
+
+        private void TbxPalavraChave_TextChanged(object sender, EventArgs e)
+        {
+            AtualizaDgv();
+        }
+
+        private void CbxPesquissarPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AtualizaDgv();
+        }
+
+        private void BtnInserir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (main != null)
+                {
+                    main.tbxIdProduto.Text = dgvProdutos.CurrentRow.Cells[0].Value.ToString();
+                    Close();
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ops! Algo inesperado aconteceu, contate o seu suporte." + "\n" + "\n" + erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

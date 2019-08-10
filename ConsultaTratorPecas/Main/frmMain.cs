@@ -13,7 +13,7 @@ namespace ConsultaTratorPecas.Main
     public partial class frmMain : Form
     {
         //metodos
-        public void AtualizaDgv()
+        public void AtualizaDgvPedido()
         {
             string cliente()
             {
@@ -27,9 +27,21 @@ namespace ConsultaTratorPecas.Main
                 }
             }
 
-            data.AtualizaDgv(dgvPedidos, cliente(), tbxDataIni.Text, tbxDataFin.Text);
+            data.AtualizaDgvPedido(dgvPedidos, cliente(), tbxDataIni.Text, tbxDataFin.Text);
             lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
         }
+
+        public void AtualizaDgvPdtCompra()
+        {
+            if (string.IsNullOrWhiteSpace(tbxIdProduto.Text))
+            {
+                return;
+            }
+
+            data.AtualizaDgvPdtCompra(dgvPdtCompra, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+        }
+
+        //inicializadores
         public frmMain()
         {
             InitializeComponent();
@@ -83,7 +95,7 @@ namespace ConsultaTratorPecas.Main
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-            AtualizaDgv();
+            AtualizaDgvPedido();
         }
 
         private void BtnVisualizar_Click(object sender, EventArgs e)
@@ -100,9 +112,14 @@ namespace ConsultaTratorPecas.Main
         {
             if (e.KeyCode == Keys.F2)
             {
-                Estoque.frmMainProduto produto = new Estoque.frmMainProduto();
+                Estoque.frmMainProduto produto = new Estoque.frmMainProduto(this);
                 produto.ShowDialog();
             }
+        }
+
+        private void BtnPesquisarEst_Click(object sender, EventArgs e)
+        {
+            AtualizaDgvPdtCompra();
         }
     }
 }
