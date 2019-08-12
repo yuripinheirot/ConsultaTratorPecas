@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPdtCompa.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Main\dsPdtVenda.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPdtVenda.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +181,17 @@
     </None>
     <None Include="Main\dsPdtCompa.xss">
       <DependentUpon>dsPdtCompa.xsd</DependentUpon>
+    </None>
+    <None Include="Main\dsPdtVenda.xsc">
+      <DependentUpon>dsPdtVenda.xsd</DependentUpon>
+    </None>
+    <None Include="Main\dsPdtVenda.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPdtVenda.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Main\dsPdtVenda.xss">
+      <DependentUpon>dsPdtVenda.xsd</DependentUpon>
     </None>
     <None Include="PedidoProduto\dsPedidoProduto.xsc">
       <DependentUpon>dsPedidoProduto.xsd</DependentUpon>
