@@ -1,8 +1,8 @@
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.exe.config
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.exe
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.pdb
-C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csprojAssemblyReference.cache
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Cliente.frmMainCliente.resources
+C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmMainProduto.resources
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Main.frmMain.resources
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.PedidoProduto.frmPedidoProduto.resources
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Properties.Resources.resources
@@ -11,4 +11,4 @@ C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Rele
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csproj.CoreCompileInputs.cache
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.exe
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.pdb
-C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmMainProduto.resources
+C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csprojAssemblyReference.cache

@@ -29,6 +29,7 @@ namespace ConsultaTratorPecas.Main
 
             data.AtualizaDgvPedido(dgvPedidos, cliente(), tbxDataIni.Text, tbxDataFin.Text);
             lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
+            lblValorTotal.Text = "Valor total: " + dgvPedidos.Rows.Cast<DataGridViewRow>().Sum(p => Convert.ToDecimal(p.Cells[4].Value)).ToString("N2");
         }
 
         public void AtualizaDgvPdtCompra()
@@ -39,6 +40,7 @@ namespace ConsultaTratorPecas.Main
             }
 
             data.AtualizaDgvPdtCompra(dgvPdtCompra, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtVenda(dgvPdtVenda, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
         }
 
         //inicializadores

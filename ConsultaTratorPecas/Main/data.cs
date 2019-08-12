@@ -168,5 +168,48 @@ namespace ConsultaTratorPecas.Main
             }
 
         }
+
+        public static void AtualizaDgvPdtVenda(DataGridView dgv, string idProduto, string dti, string dtf)
+        {
+            try
+            {
+                conexao = new SqlConnection(server);
+                conexao.Open();
+                string query =
+                    "select                                                        " +
+                    "													           " +
+                    "vda.Codigo as CodVenda,                                       " +
+                    "vda.Data as DataCadastro,                                     " +
+                    "concat(pdt.Codigo,'-',pdt.Descricao) as Produto,              " +
+                    "pdt.RefFornecedor,                                            " +
+                    "ivd.Qtd as QtdVendida,                                        " +
+                    "ivd.PrecoVenda,                                               " +
+                    "(ivd.PrecoVenda * ivd.Qtd ) as TotalVendido,                  " +
+                    "pdt.PrecoVenda as PrecoProduto                                " +
+                    "from Vendas vda                                               " +
+                    "inner join ItemsVenda  ivd on (vda.Codigo = ivd.Codigo)       " +
+                    "inner join produtos pdt on (ivd.Produto = pdt.Codigo)         " +
+                    "where pdt.codigo = @idProduto and vda.data between @dti and @dtf " +
+                    "order by vda.codigo desc                                      ";
+                SqlCommand cmd = new SqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@idProduto", idProduto);
+                cmd.Parameters.AddWithValue("@dti", dti);
+                cmd.Parameters.AddWithValue("@dtf", dtf);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(table);
+                dgv.DataSource = table;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
     }
 }
