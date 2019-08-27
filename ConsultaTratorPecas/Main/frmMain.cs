@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConsultaTratorPecas.PedidoProduto;
 
 namespace ConsultaTratorPecas.Main
 {
@@ -122,6 +123,28 @@ namespace ConsultaTratorPecas.Main
         private void BtnPesquisarEst_Click(object sender, EventArgs e)
         {
             AtualizaDgvPdtCompra();
+        }
+
+        private void DgvPedidos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataPedido.AtualizaDgv(dgvPedProdutos, dgvPedidos.CurrentRow.Cells[0].Value.ToString());
+                modelPedidoProduto model = new modelPedidoProduto();
+                dataPedido data = new dataPedido();
+                model = data.BuscaInformacoes(dgvPedidos.CurrentRow.Cells[0].Value.ToString());
+                tbxCondPag.Text = model.CondPagamento;
+                tbxDataCad.Text = model.DataCadastro;
+                tbxDataReg.Text = model.DataRegistro;
+                tbxTotalBruto.Text = model.TotalBruto;
+                tbxDescontos.Text = model.Descontos;
+                tbxTotalLiquid.Text = dgvPedProdutos.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[6].Value)).ToString("N2");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ops! Algo inesperado aconteceu, contate o seu suporte." + "\n" + "\n" + erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

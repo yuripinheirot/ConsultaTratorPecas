@@ -29,14 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.produtoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoUnitarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descontoGeralDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalLiquidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPedidoProduto = new ConsultaTratorPecas.PedidoProduto.dsPedidoProduto();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,18 +63,9 @@
             this.tbxDescontos = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbxTotalLiquid = new System.Windows.Forms.TextBox();
-            this.dsPedidoProduto = new ConsultaTratorPecas.PedidoProduto.dsPedidoProduto();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.produtoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precoUnitarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descontoGeralDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalLiquidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -86,14 +86,14 @@
             this.dgvProdutos.AllowUserToOrderColumns = true;
             this.dgvProdutos.AutoGenerateColumns = false;
             this.dgvProdutos.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.produtoDataGridViewTextBoxColumn,
@@ -104,14 +104,14 @@
             this.descontoGeralDataGridViewTextBoxColumn,
             this.totalLiquidoDataGridViewTextBoxColumn});
             this.dgvProdutos.DataSource = this.dataTable1BindingSource;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProdutos.Location = new System.Drawing.Point(15, 68);
             this.dgvProdutos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProdutos.MultiSelect = false;
@@ -121,6 +121,79 @@
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(861, 259);
             this.dgvProdutos.TabIndex = 2;
+            // 
+            // produtoDataGridViewTextBoxColumn
+            // 
+            this.produtoDataGridViewTextBoxColumn.DataPropertyName = "produto";
+            this.produtoDataGridViewTextBoxColumn.HeaderText = "Cod";
+            this.produtoDataGridViewTextBoxColumn.Name = "produtoDataGridViewTextBoxColumn";
+            this.produtoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.produtoDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // numeroDataGridViewTextBoxColumn
+            // 
+            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "numero";
+            this.numeroDataGridViewTextBoxColumn.HeaderText = "Número";
+            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
+            this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantidadeDataGridViewTextBoxColumn
+            // 
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "quantidade";
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.quantidadeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Qtd";
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
+            this.quantidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precoUnitarioDataGridViewTextBoxColumn
+            // 
+            this.precoUnitarioDataGridViewTextBoxColumn.DataPropertyName = "PrecoUnitario";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.precoUnitarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.precoUnitarioDataGridViewTextBoxColumn.HeaderText = "Preço unitário";
+            this.precoUnitarioDataGridViewTextBoxColumn.Name = "precoUnitarioDataGridViewTextBoxColumn";
+            this.precoUnitarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descontoGeralDataGridViewTextBoxColumn
+            // 
+            this.descontoGeralDataGridViewTextBoxColumn.DataPropertyName = "DescontoGeral$";
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.descontoGeralDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.descontoGeralDataGridViewTextBoxColumn.HeaderText = "Desconto";
+            this.descontoGeralDataGridViewTextBoxColumn.Name = "descontoGeralDataGridViewTextBoxColumn";
+            this.descontoGeralDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalLiquidoDataGridViewTextBoxColumn
+            // 
+            this.totalLiquidoDataGridViewTextBoxColumn.DataPropertyName = "TotalLiquido";
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.totalLiquidoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.totalLiquidoDataGridViewTextBoxColumn.HeaderText = "Total líquido";
+            this.totalLiquidoDataGridViewTextBoxColumn.Name = "totalLiquidoDataGridViewTextBoxColumn";
+            this.totalLiquidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.dsPedidoProduto;
+            // 
+            // dsPedidoProduto
+            // 
+            this.dsPedidoProduto.DataSetName = "dsPedidoProduto";
+            this.dsPedidoProduto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -275,79 +348,6 @@
             this.tbxTotalLiquid.TabIndex = 7;
             this.tbxTotalLiquid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // dsPedidoProduto
-            // 
-            this.dsPedidoProduto.DataSetName = "dsPedidoProduto";
-            this.dsPedidoProduto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.dsPedidoProduto;
-            // 
-            // produtoDataGridViewTextBoxColumn
-            // 
-            this.produtoDataGridViewTextBoxColumn.DataPropertyName = "produto";
-            this.produtoDataGridViewTextBoxColumn.HeaderText = "Cod";
-            this.produtoDataGridViewTextBoxColumn.Name = "produtoDataGridViewTextBoxColumn";
-            this.produtoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.produtoDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // numeroDataGridViewTextBoxColumn
-            // 
-            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "numero";
-            this.numeroDataGridViewTextBoxColumn.HeaderText = "Número";
-            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
-            this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantidadeDataGridViewTextBoxColumn
-            // 
-            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "quantidade";
-            dataGridViewCellStyle14.Format = "N0";
-            dataGridViewCellStyle14.NullValue = null;
-            this.quantidadeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Qtd";
-            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
-            this.quantidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precoUnitarioDataGridViewTextBoxColumn
-            // 
-            this.precoUnitarioDataGridViewTextBoxColumn.DataPropertyName = "PrecoUnitario";
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.precoUnitarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
-            this.precoUnitarioDataGridViewTextBoxColumn.HeaderText = "Preço unitário";
-            this.precoUnitarioDataGridViewTextBoxColumn.Name = "precoUnitarioDataGridViewTextBoxColumn";
-            this.precoUnitarioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descontoGeralDataGridViewTextBoxColumn
-            // 
-            this.descontoGeralDataGridViewTextBoxColumn.DataPropertyName = "DescontoGeral$";
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.descontoGeralDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
-            this.descontoGeralDataGridViewTextBoxColumn.HeaderText = "Desconto";
-            this.descontoGeralDataGridViewTextBoxColumn.Name = "descontoGeralDataGridViewTextBoxColumn";
-            this.descontoGeralDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalLiquidoDataGridViewTextBoxColumn
-            // 
-            this.totalLiquidoDataGridViewTextBoxColumn.DataPropertyName = "TotalLiquido";
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.totalLiquidoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
-            this.totalLiquidoDataGridViewTextBoxColumn.HeaderText = "Total líquido";
-            this.totalLiquidoDataGridViewTextBoxColumn.Name = "totalLiquidoDataGridViewTextBoxColumn";
-            this.totalLiquidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // frmPedidoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,8 +384,8 @@
             this.Text = "Produto por pedido";
             this.Load += new System.EventHandler(this.FrmPedidoProduto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

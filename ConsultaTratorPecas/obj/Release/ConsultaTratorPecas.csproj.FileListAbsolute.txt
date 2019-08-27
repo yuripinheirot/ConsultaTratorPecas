@@ -11,3 +11,4 @@ C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Rele
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csproj.CoreCompileInputs.cache
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.exe
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.pdb
+C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csprojAssemblyReference.cache
