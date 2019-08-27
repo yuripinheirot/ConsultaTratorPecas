@@ -27,7 +27,7 @@ namespace ConsultaTratorPecas.Main
                 }
             }
 
-            data.AtualizaDgvPedido(dgvPedidos, cliente(), tbxDataIni.Text, tbxDataFin.Text);
+            data.AtualizaDgvPedido(dgvPedidos, cliente(), Convert.ToDateTime(tbxDataIni.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFin.Text).ToString("yyyy-MM-dd"));
             lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
             lblValorTotal.Text = "Valor total: " + dgvPedidos.Rows.Cast<DataGridViewRow>().Sum(p => Convert.ToDecimal(p.Cells[4].Value)).ToString("N2");
         }

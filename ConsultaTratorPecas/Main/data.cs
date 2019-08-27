@@ -84,24 +84,25 @@ namespace ConsultaTratorPecas.Main
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
-                string query =
-                    "select                                                        " +
-                    "                                                              " +
-                    "vnd.codigo,                                                   " +
-                    "vnd.data as DataCadastro,                                     " +
-                    "vdd.Descricao as vendedor,                                    " +
-                    "vnd.TotalVenda,                                               " +
-                    "CONCAT(cli.Codigo,'-',cli.Descricao) as Cliente,              " +
-                    "vnd.Usuario                                                   " +
-                    "                                                              " +
-                    "from vendas vnd                                               " +
-                    "inner join planos pla on (vnd.CondicoesPagamento = pla.Codigo)" +
-                    "inner join clientes cli on (vnd.Cliente = cli.Codigo)         " +
-                    "inner join Vendedor vdd on (vnd.Vendedor = vdd.Codigo)        " +
-                    "                                                              " +
-                    "where vnd.data between '" + dti + "' and '" + dtf + "' " + idCliente + "  "+
-                "order by vnd.data,cli.Descricao desc                          ";
+                string query =                                                                    
+                    "select                                                                       " +
+                    "                                                                             " +
+                    "vnd.codigo,                                                                  " +
+                    "vnd.data as DataCadastro,                                                    " +
+                    "vdd.Descricao as vendedor,                                                   " +
+                    "vnd.TotalVenda,                                                              " +
+                    "CONCAT(cli.Codigo,'-',cli.Descricao) as Cliente,                             " +
+                    "vnd.Usuario                                                                  " +
+                    "                                                                             " +
+                    "from vendas vnd                                                              " +
+                    "inner join planos pla on (vnd.CondicoesPagamento = pla.Codigo)               " +
+                    "inner join clientes cli on (vnd.Cliente = cli.Codigo)                        " +
+                    "inner join Vendedor vdd on (vnd.Vendedor = vdd.Codigo)                       " +
+                    "where cast(vnd.data as date) between @dti and @dtf "+ idCliente +
+                    "order by vnd.data,cli.Descricao desc                                         ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@dti", dti);
+                cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 DataTable table = new DataTable();
                 adapter.SelectCommand = cmd;
@@ -146,7 +147,7 @@ namespace ConsultaTratorPecas.Main
                     "								  nfe.NumeroNF = nie.NumeroNF)                      " +
                     "inner join produtos pdt on (nie.Produto = pdt.Codigo)                              " +
                     "inner join Fornecedor fnc on (nfe.Cliente = fnc.Codigo and nfe.UsarFornecedor = 1) " +
-                    "where pdt.Codigo = @idProduto and nfe.DataLanc between @dti and @dtf               " +
+                    "where pdt.Codigo = @idProduto and cast(nfe.DataLanc as date) between @dti and @dtf               " +
                     "order by DataLanc desc                                                             ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 cmd.Parameters.AddWithValue("@idProduto", idProduto);
@@ -189,7 +190,7 @@ namespace ConsultaTratorPecas.Main
                     "from Vendas vda                                               " +
                     "inner join ItemsVenda  ivd on (vda.Codigo = ivd.Codigo)       " +
                     "inner join produtos pdt on (ivd.Produto = pdt.Codigo)         " +
-                    "where pdt.codigo = @idProduto and vda.data between @dti and @dtf " +
+                    "where pdt.codigo = @idProduto and cast(vda.data as date) between @dti and @dtf " +
                     "order by vda.codigo desc                                      ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 cmd.Parameters.AddWithValue("@idProduto", idProduto);
