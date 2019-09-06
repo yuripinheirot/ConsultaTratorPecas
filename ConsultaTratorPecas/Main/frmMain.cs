@@ -31,6 +31,10 @@ namespace ConsultaTratorPecas.Main
             data.AtualizaDgvPedido(dgvPedidos, cliente(), Convert.ToDateTime(tbxDataIni.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFin.Text).ToString("yyyy-MM-dd"));
             lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
             lblValorTotal.Text = "Valor total: " + dgvPedidos.Rows.Cast<DataGridViewRow>().Sum(p => Convert.ToDecimal(p.Cells[4].Value)).ToString("N2");
+            if (dgvPedidos.RowCount == 0)
+            {
+                MessageBox.Show("Nenhum registro encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public void AtualizaDgvPdtCompra()
@@ -42,6 +46,11 @@ namespace ConsultaTratorPecas.Main
 
             data.AtualizaDgvPdtCompra(dgvPdtCompra, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
             data.AtualizaDgvPdtVenda(dgvPdtVenda, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+
+            if (dgvPdtCompra.RowCount == 0 && dgvPdtVenda.RowCount == 0)
+            {
+                MessageBox.Show("Nenhum registro encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         //inicializadores
@@ -140,6 +149,18 @@ namespace ConsultaTratorPecas.Main
                 tbxDescontos.Text = model.Descontos;
                 tbxTotalLiquid.Text = dgvPedProdutos.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[6].Value)).ToString("N2");
 
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ops! Algo inesperado aconteceu, contate o seu suporte." + "\n" + "\n" + erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TbxIdProduto_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                tbxDescProduto.Text = data.NomeProduto(tbxIdProduto.Text);
             }
             catch (Exception erro)
             {
