@@ -44,7 +44,7 @@ namespace ConsultaTratorPecas.Main
                 return;
             }
 
-            data.AtualizaDgvPdtCompra(dgvPdtCompra, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtCompra(dgvPdtCompra,"F", tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
             data.AtualizaDgvPdtVenda(dgvPdtVenda, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
 
             if (dgvPdtCompra.RowCount == 0 && dgvPdtVenda.RowCount == 0)

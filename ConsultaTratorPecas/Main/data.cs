@@ -164,15 +164,26 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtCompra(DataGridView dgv, string idProduto, string dti, string dtf)
+        public static void AtualizaDgvPdtCompra(DataGridView dgv,string tipoPesquisa, string id, string dti, string dtf)
         {
+            string tipo()
+            {
+                if (tipoPesquisa == "F")
+                {
+                    return "nfe.cliente";
+                }
+                else
+                {
+                    return "pdt.codigo";
+                }
+            }
+
             try
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
                     "select                                                                             " +
-                    "																				    " +
                     "nfe.NumeroNF,                                                                      " +
                     "nfe.Modelo,                                                                        " +
                     "nfe.Serie,                                                                         " +
@@ -191,10 +202,11 @@ namespace ConsultaTratorPecas.Main
                     "								  nfe.NumeroNF = nie.NumeroNF)                      " +
                     "inner join produtos pdt on (nie.Produto = pdt.Codigo)                              " +
                     "inner join Fornecedor fnc on (nfe.Cliente = fnc.Codigo and nfe.UsarFornecedor = 1) " +
-                    "where pdt.Codigo = @idProduto and cast(nfe.DataLanc as date) between @dti and @dtf               " +
+                    "where @tipo = @id and cast(nfe.DataLanc as date) between @dti and @dtf             " +
                     "order by DataLanc desc                                                             ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
-                cmd.Parameters.AddWithValue("@idProduto", idProduto);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@tipo", tipo());
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();
