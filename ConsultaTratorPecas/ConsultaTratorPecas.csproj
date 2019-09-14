@@ -71,6 +71,18 @@
     <Compile Include="Estoque\frmMainProduto.Designer.cs">
       <DependentUpon>frmMainProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor\dataFornecedor.cs" />
+    <Compile Include="Fornecedor\dsFornecedor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFornecedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\frmMainFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\frmMainFornecedor.Designer.cs">
+      <DependentUpon>frmMainFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\data.cs" />
     <Compile Include="Main\dsDgvPedidos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -120,6 +132,9 @@
     <EmbeddedResource Include="Estoque\frmMainProduto.resx">
       <DependentUpon>frmMainProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fornecedor\frmMainFornecedor.resx">
+      <DependentUpon>frmMainFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +174,17 @@
     </None>
     <None Include="Estoque\dsProduto.xss">
       <DependentUpon>dsProduto.xsd</DependentUpon>
+    </None>
+    <None Include="Fornecedor\dsFornecedor.xsc">
+      <DependentUpon>dsFornecedor.xsd</DependentUpon>
+    </None>
+    <None Include="Fornecedor\dsFornecedor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFornecedor.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Fornecedor\dsFornecedor.xss">
+      <DependentUpon>dsFornecedor.xsd</DependentUpon>
     </None>
     <None Include="Main\dsDgvPedidos.xsc">
       <DependentUpon>dsDgvPedidos.xsd</DependentUpon>

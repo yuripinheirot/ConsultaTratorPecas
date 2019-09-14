@@ -124,8 +124,17 @@ namespace ConsultaTratorPecas.Main
         {
             if (e.KeyCode == Keys.F2)
             {
-                Estoque.frmMainProduto produto = new Estoque.frmMainProduto(this);
-                produto.ShowDialog();
+                if (cbxPesquisarPor.Text == "Produto")
+                {
+                    Estoque.frmMainProduto produto = new Estoque.frmMainProduto(this);
+                    produto.ShowDialog();
+                }
+                else
+                {
+                    Fornecedor.frmMainFornecedor fornecedor = new Fornecedor.frmMainFornecedor(this);
+                    fornecedor.ShowDialog();
+                }
+
             }
         }
 
@@ -160,7 +169,17 @@ namespace ConsultaTratorPecas.Main
         {
             try
             {
-                tbxDescProduto.Text = data.NomeProduto(tbxCodigo.Text);
+                if (!string.IsNullOrWhiteSpace(tbxCodigo.Text))
+                {
+                    if (cbxPesquisarPor.Text == "Fornecedor")
+                    {
+                        tbxDescricao.Text = data.NomeFornecedor(tbxCodigo.Text);
+                    }
+                    else
+                    {
+                        tbxDescricao.Text = data.NomeProduto(tbxCodigo.Text);
+                    }
+                }
             }
             catch (Exception erro)
             {

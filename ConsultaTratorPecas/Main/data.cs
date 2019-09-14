@@ -100,6 +100,28 @@ namespace ConsultaTratorPecas.Main
 
         }
 
+        public static string NomeFornecedor(string idForncedor)
+        {
+            try
+            {
+                conexao = new SqlConnection(server);
+                conexao.Open();
+                string query = "select descricao from fornecedor where codigo = @codigo;";
+                SqlCommand cmd = new SqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@codigo", idForncedor);
+                return cmd.ExecuteScalar().ToString();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
         public static void AtualizaDgvPedido(DataGridView dgv, string idCliente, string dti, string dtf)
         {
             try

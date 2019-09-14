@@ -29,31 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsCliente = new ConsultaTratorPecas.Cliente.dsCliente();
             this.lblClientesEnc = new System.Windows.Forms.Label();
             this.tbxPalavra = new System.Windows.Forms.TextBox();
             this.cbxPesquisar = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.dsCliente = new ConsultaTratorPecas.Cliente.dsCliente();
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.foneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpfOuCgcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
             // 
             this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSair.Location = new System.Drawing.Point(723, 415);
+            this.btnSair.Location = new System.Drawing.Point(571, 415);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 2;
@@ -68,20 +69,19 @@
             this.dgvCliente.AllowUserToOrderColumns = true;
             this.dgvCliente.AutoGenerateColumns = false;
             this.dgvCliente.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoDataGridViewTextBoxColumn,
             this.clienteDataGridViewTextBoxColumn,
-            this.foneDataGridViewTextBoxColumn,
-            this.cpfOuCgcDataGridViewTextBoxColumn});
+            this.foneDataGridViewTextBoxColumn});
             this.dgvCliente.DataSource = this.dataTable1BindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -98,8 +98,18 @@
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.RowHeadersWidth = 24;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(786, 320);
+            this.dgvCliente.Size = new System.Drawing.Size(634, 320);
             this.dgvCliente.TabIndex = 3;
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            this.dataTable1BindingSource.DataSource = this.dsCliente;
+            // 
+            // dsCliente
+            // 
+            this.dsCliente.DataSetName = "dsCliente";
+            this.dsCliente.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblClientesEnc
             // 
@@ -152,23 +162,13 @@
             // 
             // btnInserir
             // 
-            this.btnInserir.Location = new System.Drawing.Point(642, 415);
+            this.btnInserir.Location = new System.Drawing.Point(490, 415);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(75, 23);
             this.btnInserir.TabIndex = 1;
             this.btnInserir.Text = "&Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.BtnInserir_Click);
-            // 
-            // dsCliente
-            // 
-            this.dsCliente.DataSetName = "dsCliente";
-            this.dsCliente.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.dsCliente;
             // 
             // codigoDataGridViewTextBoxColumn
             // 
@@ -181,6 +181,8 @@
             // clienteDataGridViewTextBoxColumn
             // 
             this.clienteDataGridViewTextBoxColumn.DataPropertyName = "cliente";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clienteDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
             this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
             this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
@@ -189,18 +191,12 @@
             // foneDataGridViewTextBoxColumn
             // 
             this.foneDataGridViewTextBoxColumn.DataPropertyName = "fone";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.foneDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.foneDataGridViewTextBoxColumn.HeaderText = "Fone";
             this.foneDataGridViewTextBoxColumn.Name = "foneDataGridViewTextBoxColumn";
             this.foneDataGridViewTextBoxColumn.ReadOnly = true;
             this.foneDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cpfOuCgcDataGridViewTextBoxColumn
-            // 
-            this.cpfOuCgcDataGridViewTextBoxColumn.DataPropertyName = "CPFCNPJ";
-            this.cpfOuCgcDataGridViewTextBoxColumn.HeaderText = "CPF/CNPJ";
-            this.cpfOuCgcDataGridViewTextBoxColumn.Name = "cpfOuCgcDataGridViewTextBoxColumn";
-            this.cpfOuCgcDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cpfOuCgcDataGridViewTextBoxColumn.Width = 150;
             // 
             // frmMainCliente
             // 
@@ -209,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.CancelButton = this.btnSair;
-            this.ClientSize = new System.Drawing.Size(821, 450);
+            this.ClientSize = new System.Drawing.Size(660, 450);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.cbxPesquisar);
             this.Controls.Add(this.tbxPalavra);
@@ -228,8 +224,8 @@
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.FrmMainCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,9 +243,9 @@
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private dsCliente dsCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpfOuCgcDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn foneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpfOuCgcDataGridViewTextBoxColumn;
     }
 }

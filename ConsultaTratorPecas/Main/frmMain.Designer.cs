@@ -95,7 +95,7 @@
             this.dsDgvPedidos = new ConsultaTratorPecas.Main.dsDgvPedidos();
             this.tbxEstoque = new System.Windows.Forms.TabPage();
             this.cbxPesquisarPor = new System.Windows.Forms.ComboBox();
-            this.tbxDescProduto = new System.Windows.Forms.TextBox();
+            this.tbxDescricao = new System.Windows.Forms.TextBox();
             this.tbxCodigo = new System.Windows.Forms.MaskedTextBox();
             this.tbxDataFinEst = new System.Windows.Forms.DateTimePicker();
             this.tbxDataIniEst = new System.Windows.Forms.DateTimePicker();
@@ -676,7 +676,7 @@
             // tbxEstoque
             // 
             this.tbxEstoque.Controls.Add(this.cbxPesquisarPor);
-            this.tbxEstoque.Controls.Add(this.tbxDescProduto);
+            this.tbxEstoque.Controls.Add(this.tbxDescricao);
             this.tbxEstoque.Controls.Add(this.tbxCodigo);
             this.tbxEstoque.Controls.Add(this.tbxDataFinEst);
             this.tbxEstoque.Controls.Add(this.tbxDataIniEst);
@@ -713,13 +713,13 @@
             // 
             // tbxDescProduto
             // 
-            this.tbxDescProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDescProduto.Location = new System.Drawing.Point(227, 23);
-            this.tbxDescProduto.Name = "tbxDescProduto";
-            this.tbxDescProduto.ReadOnly = true;
-            this.tbxDescProduto.Size = new System.Drawing.Size(464, 20);
-            this.tbxDescProduto.TabIndex = 1;
-            this.tbxDescProduto.TabStop = false;
+            this.tbxDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDescricao.Location = new System.Drawing.Point(227, 23);
+            this.tbxDescricao.Name = "tbxDescProduto";
+            this.tbxDescricao.ReadOnly = true;
+            this.tbxDescricao.Size = new System.Drawing.Size(464, 20);
+            this.tbxDescricao.TabIndex = 1;
+            this.tbxDescricao.TabStop = false;
             // 
             // tbxCodigo
             // 
@@ -1203,7 +1203,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qtdCompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalcompraItemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoVendaDataGridViewTextBoxColumn;
-        public System.Windows.Forms.TextBox tbxDescProduto;
+        public System.Windows.Forms.TextBox tbxDescricao;
         private System.Windows.Forms.ComboBox cbxPesquisarPor;
         private System.Windows.Forms.Label label18;
     }

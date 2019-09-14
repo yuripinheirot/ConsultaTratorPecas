@@ -30,7 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -91,14 +95,14 @@
             this.reffornecedorDataGridViewTextBoxColumn,
             this.inativoDataGridViewTextBoxColumn});
             this.dgvProdutos.DataSource = this.dataTable1BindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProdutos.Location = new System.Drawing.Point(16, 25);
             this.dgvProdutos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProdutos.MultiSelect = false;
@@ -203,6 +207,8 @@
             // produtoDataGridViewTextBoxColumn
             // 
             this.produtoDataGridViewTextBoxColumn.DataPropertyName = "Produto";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.produtoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.produtoDataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.produtoDataGridViewTextBoxColumn.Name = "produtoDataGridViewTextBoxColumn";
             this.produtoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -211,6 +217,8 @@
             // marcaDataGridViewTextBoxColumn
             // 
             this.marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.marcaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
             this.marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
             this.marcaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -219,6 +227,8 @@
             // numeroDataGridViewTextBoxColumn
             // 
             this.numeroDataGridViewTextBoxColumn.DataPropertyName = "numero";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.numeroDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.numeroDataGridViewTextBoxColumn.HeaderText = "N°";
             this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
             this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
@@ -243,6 +253,8 @@
             // reffornecedorDataGridViewTextBoxColumn
             // 
             this.reffornecedorDataGridViewTextBoxColumn.DataPropertyName = "Reffornecedor";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.reffornecedorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.reffornecedorDataGridViewTextBoxColumn.HeaderText = "Ref fornecedor";
             this.reffornecedorDataGridViewTextBoxColumn.Name = "reffornecedorDataGridViewTextBoxColumn";
             this.reffornecedorDataGridViewTextBoxColumn.ReadOnly = true;
