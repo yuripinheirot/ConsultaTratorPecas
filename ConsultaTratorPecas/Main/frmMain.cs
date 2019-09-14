@@ -39,13 +39,13 @@ namespace ConsultaTratorPecas.Main
 
         public void AtualizaDgvPdtCompra()
         {
-            if (string.IsNullOrWhiteSpace(tbxIdProduto.Text))
+            if (string.IsNullOrWhiteSpace(tbxCodigo.Text))
             {
                 return;
             }
 
-            data.AtualizaDgvPdtCompra(dgvPdtCompra, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-            data.AtualizaDgvPdtVenda(dgvPdtVenda, tbxIdProduto.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtCompra(dgvPdtCompra, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtVenda(dgvPdtVenda, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
 
             if (dgvPdtCompra.RowCount == 0 && dgvPdtVenda.RowCount == 0)
             {
@@ -88,7 +88,7 @@ namespace ConsultaTratorPecas.Main
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+            cbxPesquisarPor.Text = "Fornecedor";
         }
 
         private void TbxIdCliente_KeyDown(object sender, KeyEventArgs e)
@@ -160,7 +160,7 @@ namespace ConsultaTratorPecas.Main
         {
             try
             {
-                tbxDescProduto.Text = data.NomeProduto(tbxIdProduto.Text);
+                tbxDescProduto.Text = data.NomeProduto(tbxCodigo.Text);
             }
             catch (Exception erro)
             {
