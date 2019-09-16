@@ -37,6 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,7 +48,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbcPedidos = new System.Windows.Forms.TabPage();
             this.tbxTotalLiquid = new System.Windows.Forms.TextBox();
@@ -95,6 +95,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisarEst = new System.Windows.Forms.Button();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstEco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produtoDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,18 +123,15 @@
             this.precoProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsPdtVenda = new ConsultaTratorPecas.Main.dsPdtVenda();
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsPdtCompa = new ConsultaTratorPecas.Main.dsPdtCompa();
-            this.button1 = new System.Windows.Forms.Button();
             this.numeroNFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataEmissaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtdCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalcompraItemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoVendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstEco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPdtCompa = new ConsultaTratorPecas.Main.dsPdtCompa();
             this.tabControl1.SuspendLayout();
             this.tbcPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedProdutos)).BeginInit();
@@ -529,7 +528,6 @@
             // 
             // tbxEstoque
             // 
-            this.tbxEstoque.Controls.Add(this.button1);
             this.tbxEstoque.Controls.Add(this.cbxPesquisarPor);
             this.tbxEstoque.Controls.Add(this.tbxDescricao);
             this.tbxEstoque.Controls.Add(this.tbxCodigo);
@@ -777,6 +775,24 @@
             this.btnPesquisarEst.UseVisualStyleBackColor = true;
             this.btnPesquisarEst.Click += new System.EventHandler(this.BtnPesquisarEst_Click);
             // 
+            // Produto
+            // 
+            this.Produto.DataPropertyName = "Produto";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Produto.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            this.Produto.Width = 200;
+            // 
+            // EstEco
+            // 
+            this.EstEco.DataPropertyName = "EstEco";
+            this.EstEco.HeaderText = "Estoque Eco";
+            this.EstEco.Name = "EstEco";
+            this.EstEco.ReadOnly = true;
+            this.EstEco.Width = 65;
+            // 
             // produtoDataGridViewTextBoxColumn2
             // 
             this.produtoDataGridViewTextBoxColumn2.DataPropertyName = "produto";
@@ -1009,26 +1025,6 @@
             this.dsPdtVenda.DataSetName = "dsPdtVenda";
             this.dsPdtVenda.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataTable1BindingSource1
-            // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            this.dataTable1BindingSource1.DataSource = this.dsPdtCompa;
-            // 
-            // dsPdtCompa
-            // 
-            this.dsPdtCompa.DataSetName = "dsPdtCompa";
-            this.dsPdtCompa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // numeroNFDataGridViewTextBoxColumn
             // 
             this.numeroNFDataGridViewTextBoxColumn.DataPropertyName = "numeroNF";
@@ -1057,16 +1053,6 @@
             this.fornecedorDataGridViewTextBoxColumn.Name = "fornecedorDataGridViewTextBoxColumn";
             this.fornecedorDataGridViewTextBoxColumn.ReadOnly = true;
             this.fornecedorDataGridViewTextBoxColumn.Width = 260;
-            // 
-            // Produto
-            // 
-            this.Produto.DataPropertyName = "Produto";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Produto.DefaultCellStyle = dataGridViewCellStyle18;
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            this.Produto.Width = 200;
             // 
             // precoDataGridViewTextBoxColumn
             // 
@@ -1104,13 +1090,15 @@
             this.precoVendaDataGridViewTextBoxColumn.ReadOnly = true;
             this.precoVendaDataGridViewTextBoxColumn.Width = 65;
             // 
-            // EstEco
+            // dataTable1BindingSource1
             // 
-            this.EstEco.DataPropertyName = "EstEco";
-            this.EstEco.HeaderText = "Estoque Eco";
-            this.EstEco.Name = "EstEco";
-            this.EstEco.ReadOnly = true;
-            this.EstEco.Width = 65;
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            this.dataTable1BindingSource1.DataSource = this.dsPdtCompa;
+            // 
+            // dsPdtCompa
+            // 
+            this.dsPdtCompa.DataSetName = "dsPdtCompa";
+            this.dsPdtCompa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // frmMain
             // 
@@ -1226,7 +1214,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precoVendaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalVendidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoProdutoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroNFDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEmissaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fornecedorDataGridViewTextBoxColumn;
