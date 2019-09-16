@@ -37,3 +37,5 @@ C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Debug
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Debug\ConsultaTratorPecas.exe
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Debug\ConsultaTratorPecas.pdb
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.Fornecedor.frmMainFornecedor.resources
+C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.csproj.CopyComplete

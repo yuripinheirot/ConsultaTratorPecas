@@ -301,6 +301,8 @@ namespace ConsultaTratorPecas.Main {
             
             private global::System.Data.DataColumn columnPrecoVenda;
             
+            private global::System.Data.DataColumn columnEstEco;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DataTable1DataTable() {
@@ -424,6 +426,14 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EstEcoColumn {
+                get {
+                    return this.columnEstEco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +469,7 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string numeroNF, string modelo, string serie, string DataEmissao, string DataLann, string Fornecedor, string Produto, string Preco, string QtdCompra, string TotalcompraItem, string PrecoVenda) {
+            public DataTable1Row AddDataTable1Row(string numeroNF, string modelo, string serie, string DataEmissao, string DataLann, string Fornecedor, string Produto, string Preco, string QtdCompra, string TotalcompraItem, string PrecoVenda, string EstEco) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         numeroNF,
@@ -472,7 +482,8 @@ namespace ConsultaTratorPecas.Main {
                         Preco,
                         QtdCompra,
                         TotalcompraItem,
-                        PrecoVenda};
+                        PrecoVenda,
+                        EstEco};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -506,6 +517,7 @@ namespace ConsultaTratorPecas.Main {
                 this.columnQtdCompra = base.Columns["QtdCompra"];
                 this.columnTotalcompraItem = base.Columns["TotalcompraItem"];
                 this.columnPrecoVenda = base.Columns["PrecoVenda"];
+                this.columnEstEco = base.Columns["EstEco"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +545,8 @@ namespace ConsultaTratorPecas.Main {
                 base.Columns.Add(this.columnTotalcompraItem);
                 this.columnPrecoVenda = new global::System.Data.DataColumn("PrecoVenda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecoVenda);
+                this.columnEstEco = new global::System.Data.DataColumn("EstEco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstEco);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,6 +865,22 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string EstEco {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.EstEcoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'EstEco\' na tabela \'DataTable1\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.EstEcoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsnumeroNFNull() {
                 return this.IsNull(this.tableDataTable1.numeroNFColumn);
             }
@@ -979,6 +1009,18 @@ namespace ConsultaTratorPecas.Main {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPrecoVendaNull() {
                 this[this.tableDataTable1.PrecoVendaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEstEcoNull() {
+                return this.IsNull(this.tableDataTable1.EstEcoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEstEcoNull() {
+                this[this.tableDataTable1.EstEcoColumn] = global::System.Convert.DBNull;
             }
         }
         

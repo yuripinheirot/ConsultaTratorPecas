@@ -243,7 +243,6 @@
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private dsCliente dsCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpfOuCgcDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn foneDataGridViewTextBoxColumn;

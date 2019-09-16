@@ -34,5 +34,28 @@ namespace ConsultaTratorPecas.Properties {
                 this["Conexao"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"User=SYSDBA;   
+ Password=masterkey;   
+ Database=D:\Dados\TratorPecas\ecodados.eco;   
+ DataSource=localhost;   
+ Port=3050;   
+ Dialect=3;   
+ Charset=NONE;   
+ Role=;   
+ Connection lifetime=15;   
+ Pooling=true;   
+ Packet Size=8192;   
+ ServerType=0 ;")]
+        public string ConexaoFB {
+            get {
+                return ((string)(this["ConexaoFB"]));
+            }
+            set {
+                this["ConexaoFB"] = value;
+            }
+        }
     }
 }

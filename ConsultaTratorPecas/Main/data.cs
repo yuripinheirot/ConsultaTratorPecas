@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows.Forms;
+using FirebirdSql.Data.FirebirdClient;
 
 namespace ConsultaTratorPecas.Main
 {
@@ -122,6 +123,23 @@ namespace ConsultaTratorPecas.Main
 
         }
 
+        public static string EstoqueEco(string idProduto)
+        {
+            try
+            {
+                FbConnection conexao = new FbConnection(Properties.Settings.Default.ConexaoFB);
+                string query = "";
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
         public static void AtualizaDgvPedido(DataGridView dgv, string idCliente, string dti, string dtf)
         {
             try
@@ -130,19 +148,17 @@ namespace ConsultaTratorPecas.Main
                 conexao.Open();
                 string query =
                     "select                                                                       " +
-                    "                                                                             " +
                     "vnd.codigo,                                                                  " +
                     "vnd.data as DataCadastro,                                                    " +
                     "vdd.Descricao as vendedor,                                                   " +
                     "vnd.TotalVenda,                                                              " +
                     "CONCAT(cli.Codigo,'-',cli.Descricao) as Cliente,                             " +
                     "vnd.Usuario                                                                  " +
-                    "                                                                             " +
                     "from vendas vnd                                                              " +
                     "inner join planos pla on (vnd.CondicoesPagamento = pla.Codigo)               " +
                     "inner join clientes cli on (vnd.Cliente = cli.Codigo)                        " +
                     "inner join Vendedor vdd on (vnd.Vendedor = vdd.Codigo)                       " +
-                    "where cast(vnd.data as date) between @dti and @dtf " + idCliente +
+                    "where cast(vnd.data as date) between @dti and @dtf                           " + idCliente +
                     "order by vnd.data,cli.Descricao desc                                         ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 cmd.Parameters.AddWithValue("@dti", dti);
