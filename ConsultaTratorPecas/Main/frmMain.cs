@@ -48,12 +48,17 @@ namespace ConsultaTratorPecas.Main
             string tipoVenda = cbxPesquisarPor.Text.Substring(0, 1) == "F" ? "nie.ClienteItens" : "ivd.produto";
 
             data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-            data.AtualizaDgvPdtVenda(dgvPdtVenda,tipoVenda, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtVenda(dgvPdtVenda, tipoVenda, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            if (dgvPdtCompra.RowCount > 0)
+            {
+                dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[8].Value = data.EstoqueEco(p.Cells[3].Value.ToString().Substring(0, p.Cells[3].Value.ToString().IndexOf("-"))));
+            }
 
             if (dgvPdtCompra.RowCount == 0 && dgvPdtVenda.RowCount == 0)
             {
                 MessageBox.Show("Nenhum registro encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
         }
 
         //inicializadores
@@ -144,6 +149,7 @@ namespace ConsultaTratorPecas.Main
         private void BtnPesquisarEst_Click(object sender, EventArgs e)
         {
             AtualizaDgvPdtCompra();
+
         }
 
         private void DgvPedidos_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -195,6 +201,14 @@ namespace ConsultaTratorPecas.Main
             frmPedidoProduto pdt = new frmPedidoProduto(this);
             pdt.tbxPedido.Text = dgvPdtVenda.CurrentRow.Cells[0].Value.ToString();
             pdt.ShowDialog();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgvPdtCompra.Rows)
+            {
+                //item.Cells[8].Value = data.EstoqueEco();
+            }
         }
     }
 }

@@ -38,13 +38,14 @@ namespace ConsultaTratorPecas.Main
             }
             catch (Exception erro)
             {
-                throw erro;
+                MessageBox.Show(erro.Message);
+
             }
             finally
             {
-                //conexao.Close();
+                conexao.Close();
             }
-
+            return false;
 
         }
 
@@ -128,7 +129,13 @@ namespace ConsultaTratorPecas.Main
             try
             {
                 FbConnection conexao = new FbConnection(Properties.Settings.Default.ConexaoFB);
-                string query = "";
+                conexao.Open();
+                string query = "select (a.ESTDISPONIVEL + a.ESTRESERVADO + a.ESTCONDICIONAL) as EstEco from testestoque a where cast(a.produto as int) = @codigo;";
+                FbCommand cmd = new FbCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@codigo", idProduto);
+                string cod = cmd.ExecuteScalar().ToString();
+                conexao.Close();
+                return cod;
             }
             catch (Exception erro)
             {
