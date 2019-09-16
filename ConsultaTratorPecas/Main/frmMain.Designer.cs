@@ -40,12 +40,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbcPedidos = new System.Windows.Forms.TabPage();
             this.tbxTotalLiquid = new System.Windows.Forms.TextBox();
@@ -100,14 +100,6 @@
             this.tbxDataFinEst = new System.Windows.Forms.DateTimePicker();
             this.tbxDataIniEst = new System.Windows.Forms.DateTimePicker();
             this.dgvPdtVenda = new System.Windows.Forms.DataGridView();
-            this.codVendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataCadastroDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdVendidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precoVendaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalVendidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precoProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsPdtVenda = new ConsultaTratorPecas.Main.dsPdtVenda();
             this.dgvPdtCompra = new System.Windows.Forms.DataGridView();
@@ -129,6 +121,14 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisarEst = new System.Windows.Forms.Button();
+            this.codVendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataCadastroDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtdVendidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoVendaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalVendidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tbcPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedProdutos)).BeginInit();
@@ -711,11 +711,11 @@
             this.cbxPesquisarPor.Size = new System.Drawing.Size(137, 21);
             this.cbxPesquisarPor.TabIndex = 7;
             // 
-            // tbxDescProduto
+            // tbxDescricao
             // 
             this.tbxDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDescricao.Location = new System.Drawing.Point(227, 23);
-            this.tbxDescricao.Name = "tbxDescProduto";
+            this.tbxDescricao.Name = "tbxDescricao";
             this.tbxDescricao.ReadOnly = true;
             this.tbxDescricao.Size = new System.Drawing.Size(464, 20);
             this.tbxDescricao.TabIndex = 1;
@@ -793,87 +793,7 @@
             this.dgvPdtVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPdtVenda.Size = new System.Drawing.Size(980, 270);
             this.dgvPdtVenda.TabIndex = 6;
-            // 
-            // codVendaDataGridViewTextBoxColumn
-            // 
-            this.codVendaDataGridViewTextBoxColumn.DataPropertyName = "CodVenda";
-            this.codVendaDataGridViewTextBoxColumn.HeaderText = "Venda";
-            this.codVendaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.codVendaDataGridViewTextBoxColumn.Name = "codVendaDataGridViewTextBoxColumn";
-            this.codVendaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codVendaDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // Cliente
-            // 
-            this.Cliente.DataPropertyName = "Cliente";
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.MinimumWidth = 6;
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Width = 348;
-            // 
-            // dataCadastroDataGridViewTextBoxColumn1
-            // 
-            this.dataCadastroDataGridViewTextBoxColumn1.DataPropertyName = "DataCadastro";
-            this.dataCadastroDataGridViewTextBoxColumn1.HeaderText = "Data cadastro";
-            this.dataCadastroDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataCadastroDataGridViewTextBoxColumn1.Name = "dataCadastroDataGridViewTextBoxColumn1";
-            this.dataCadastroDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataCadastroDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // refFornecedorDataGridViewTextBoxColumn
-            // 
-            this.refFornecedorDataGridViewTextBoxColumn.DataPropertyName = "RefFornecedor";
-            this.refFornecedorDataGridViewTextBoxColumn.HeaderText = "Ref fornecedor";
-            this.refFornecedorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.refFornecedorDataGridViewTextBoxColumn.Name = "refFornecedorDataGridViewTextBoxColumn";
-            this.refFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.refFornecedorDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // qtdVendidaDataGridViewTextBoxColumn
-            // 
-            this.qtdVendidaDataGridViewTextBoxColumn.DataPropertyName = "QtdVendida";
-            dataGridViewCellStyle11.Format = "N2";
-            this.qtdVendidaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.qtdVendidaDataGridViewTextBoxColumn.HeaderText = "Qtd vendida";
-            this.qtdVendidaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.qtdVendidaDataGridViewTextBoxColumn.Name = "qtdVendidaDataGridViewTextBoxColumn";
-            this.qtdVendidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.qtdVendidaDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // precoVendaDataGridViewTextBoxColumn1
-            // 
-            this.precoVendaDataGridViewTextBoxColumn1.DataPropertyName = "PrecoVenda";
-            dataGridViewCellStyle12.Format = "N2";
-            this.precoVendaDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
-            this.precoVendaDataGridViewTextBoxColumn1.HeaderText = "Preco de venda";
-            this.precoVendaDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.precoVendaDataGridViewTextBoxColumn1.Name = "precoVendaDataGridViewTextBoxColumn1";
-            this.precoVendaDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.precoVendaDataGridViewTextBoxColumn1.Width = 75;
-            // 
-            // totalVendidoDataGridViewTextBoxColumn
-            // 
-            this.totalVendidoDataGridViewTextBoxColumn.DataPropertyName = "TotalVendido";
-            dataGridViewCellStyle13.Format = "N2";
-            this.totalVendidoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.totalVendidoDataGridViewTextBoxColumn.HeaderText = "Total vendido";
-            this.totalVendidoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalVendidoDataGridViewTextBoxColumn.Name = "totalVendidoDataGridViewTextBoxColumn";
-            this.totalVendidoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalVendidoDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // precoProdutoDataGridViewTextBoxColumn
-            // 
-            this.precoProdutoDataGridViewTextBoxColumn.DataPropertyName = "PrecoProduto";
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.precoProdutoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.precoProdutoDataGridViewTextBoxColumn.HeaderText = "Preco do produto";
-            this.precoProdutoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.precoProdutoDataGridViewTextBoxColumn.Name = "precoProdutoDataGridViewTextBoxColumn";
-            this.precoProdutoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.precoProdutoDataGridViewTextBoxColumn.Width = 75;
+            this.dgvPdtVenda.DoubleClick += new System.EventHandler(this.DgvPdtVenda_DoubleClick);
             // 
             // dataTable1BindingSource2
             // 
@@ -1084,6 +1004,87 @@
             this.btnPesquisarEst.UseVisualStyleBackColor = true;
             this.btnPesquisarEst.Click += new System.EventHandler(this.BtnPesquisarEst_Click);
             // 
+            // codVendaDataGridViewTextBoxColumn
+            // 
+            this.codVendaDataGridViewTextBoxColumn.DataPropertyName = "CodVenda";
+            this.codVendaDataGridViewTextBoxColumn.HeaderText = "Venda";
+            this.codVendaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.codVendaDataGridViewTextBoxColumn.Name = "codVendaDataGridViewTextBoxColumn";
+            this.codVendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codVendaDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // Cliente
+            // 
+            this.Cliente.DataPropertyName = "Cliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Width = 348;
+            // 
+            // dataCadastroDataGridViewTextBoxColumn1
+            // 
+            this.dataCadastroDataGridViewTextBoxColumn1.DataPropertyName = "DataCadastro";
+            this.dataCadastroDataGridViewTextBoxColumn1.HeaderText = "Data cadastro";
+            this.dataCadastroDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataCadastroDataGridViewTextBoxColumn1.Name = "dataCadastroDataGridViewTextBoxColumn1";
+            this.dataCadastroDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataCadastroDataGridViewTextBoxColumn1.Width = 98;
+            // 
+            // refFornecedorDataGridViewTextBoxColumn
+            // 
+            this.refFornecedorDataGridViewTextBoxColumn.DataPropertyName = "RefFornecedor";
+            this.refFornecedorDataGridViewTextBoxColumn.HeaderText = "Ref fornecedor";
+            this.refFornecedorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.refFornecedorDataGridViewTextBoxColumn.Name = "refFornecedorDataGridViewTextBoxColumn";
+            this.refFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.refFornecedorDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // qtdVendidaDataGridViewTextBoxColumn
+            // 
+            this.qtdVendidaDataGridViewTextBoxColumn.DataPropertyName = "QtdVendida";
+            dataGridViewCellStyle11.Format = "N2";
+            this.qtdVendidaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.qtdVendidaDataGridViewTextBoxColumn.HeaderText = "Qtd vendida";
+            this.qtdVendidaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.qtdVendidaDataGridViewTextBoxColumn.Name = "qtdVendidaDataGridViewTextBoxColumn";
+            this.qtdVendidaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qtdVendidaDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // precoVendaDataGridViewTextBoxColumn1
+            // 
+            this.precoVendaDataGridViewTextBoxColumn1.DataPropertyName = "PrecoVenda";
+            dataGridViewCellStyle12.Format = "N2";
+            this.precoVendaDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
+            this.precoVendaDataGridViewTextBoxColumn1.HeaderText = "Preco de venda";
+            this.precoVendaDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.precoVendaDataGridViewTextBoxColumn1.Name = "precoVendaDataGridViewTextBoxColumn1";
+            this.precoVendaDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.precoVendaDataGridViewTextBoxColumn1.Width = 75;
+            // 
+            // totalVendidoDataGridViewTextBoxColumn
+            // 
+            this.totalVendidoDataGridViewTextBoxColumn.DataPropertyName = "TotalVendido";
+            dataGridViewCellStyle13.Format = "N2";
+            this.totalVendidoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.totalVendidoDataGridViewTextBoxColumn.HeaderText = "Total vendido";
+            this.totalVendidoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalVendidoDataGridViewTextBoxColumn.Name = "totalVendidoDataGridViewTextBoxColumn";
+            this.totalVendidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalVendidoDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // precoProdutoDataGridViewTextBoxColumn
+            // 
+            this.precoProdutoDataGridViewTextBoxColumn.DataPropertyName = "PrecoProduto";
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.precoProdutoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.precoProdutoDataGridViewTextBoxColumn.HeaderText = "Preco do produto";
+            this.precoProdutoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.precoProdutoDataGridViewTextBoxColumn.Name = "precoProdutoDataGridViewTextBoxColumn";
+            this.precoProdutoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precoProdutoDataGridViewTextBoxColumn.Width = 75;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1187,14 +1188,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descontoGeralDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalLiquidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codVendaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataCadastroDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn refFornecedorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdVendidaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precoVendaDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalVendidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precoProdutoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroNFDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEmissaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataLannDataGridViewTextBoxColumn;
@@ -1206,5 +1199,13 @@
         public System.Windows.Forms.TextBox tbxDescricao;
         private System.Windows.Forms.ComboBox cbxPesquisarPor;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codVendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataCadastroDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refFornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtdVendidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoVendaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalVendidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoProdutoDataGridViewTextBoxColumn;
     }
 }

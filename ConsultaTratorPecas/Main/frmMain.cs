@@ -44,8 +44,11 @@ namespace ConsultaTratorPecas.Main
                 return;
             }
 
-            data.AtualizaDgvPdtCompra(dgvPdtCompra,"F", tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-            data.AtualizaDgvPdtVenda(dgvPdtVenda, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            string tipoCompra = cbxPesquisarPor.Text.Substring(0, 1) == "F" ? "nie.ClienteItens" : "nie.produto";
+            string tipoVenda = cbxPesquisarPor.Text.Substring(0, 1) == "F" ? "nie.ClienteItens" : "ivd.produto";
+
+            data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtVenda(dgvPdtVenda,tipoVenda, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
 
             if (dgvPdtCompra.RowCount == 0 && dgvPdtVenda.RowCount == 0)
             {
@@ -185,6 +188,13 @@ namespace ConsultaTratorPecas.Main
             {
                 MessageBox.Show("Ops! Algo inesperado aconteceu, contate o seu suporte." + "\n" + "\n" + erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void DgvPdtVenda_DoubleClick(object sender, EventArgs e)
+        {
+            frmPedidoProduto pdt = new frmPedidoProduto(this);
+            pdt.tbxPedido.Text = dgvPdtVenda.CurrentRow.Cells[0].Value.ToString();
+            pdt.ShowDialog();
         }
     }
 }

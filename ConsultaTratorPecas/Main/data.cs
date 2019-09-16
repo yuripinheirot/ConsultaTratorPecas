@@ -164,49 +164,39 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtCompra(DataGridView dgv,string tipoPesquisa, string id, string dti, string dtf)
+        public static void AtualizaDgvPdtCompra(DataGridView dgv, string tipoPesquisa, string id, string dti, string dtf)
         {
-            string tipo()
-            {
-                if (tipoPesquisa == "F")
-                {
-                    return "nfe.cliente";
-                }
-                else
-                {
-                    return "pdt.codigo";
-                }
-            }
 
             try
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
-                    "select                                                                             " +
-                    "nfe.NumeroNF,                                                                      " +
-                    "nfe.Modelo,                                                                        " +
-                    "nfe.Serie,                                                                         " +
-                    "nfe.Emissao as DataEmissao,                                                        " +
-                    "nfe.DataLanc,                                                                      " +
-                    "concat(fnc.Codigo,'-' ,fnc.Descricao) as Fornecedor,                               " +
-                    "concat(pdt.Codigo,'-', pdt.Descricao) as Produto,                                  " +
-                    "cast(nie.Preco as numeric(18,2)) as Preco,                                         " +
-                    "cast(nie.Qtd as numeric(18,2)) as QtdCompra,                                       " +
-                    "cast(nie.ValorTotalLiquido as numeric(18,2)) as TotalCompraItem,                   " +
-                    "cast(pdt.PrecoVenda as numeric(18,2)) as PrecoVenda                                " +
-                    "																				    " +
-                    "from NotasFiscaisEntrada nfe                                                       " +
-                    "inner join NFItemsEntrada nie on (nfe.Modelo = nie.Modelo and                      " +
-                    "                                  nfe.Serie = nie.Serie and                        " +
-                    "								  nfe.NumeroNF = nie.NumeroNF)                      " +
-                    "inner join produtos pdt on (nie.Produto = pdt.Codigo)                              " +
-                    "inner join Fornecedor fnc on (nfe.Cliente = fnc.Codigo and nfe.UsarFornecedor = 1) " +
-                    "where @tipo = @id and cast(nfe.DataLanc as date) between @dti and @dtf             " +
-                    "order by DataLanc desc                                                             ";
+                    "select                                                                                " +
+                    "																				       " +
+                    "nfe.NumeroNF,                                                                         " +
+                    "nfe.Modelo,                                                                           " +
+                    "nfe.Serie,                                                                            " +
+                    "nfe.Emissao as DataEmissao,                                                           " +
+                    "nfe.DataLanc,                                                                         " +
+                    "concat(fnc.Codigo,'-' ,fnc.Descricao) as Fornecedor,                                  " +
+                    "concat(pdt.Codigo,'-', pdt.Descricao) as Produto,                                     " +
+                    "cast(nie.Preco as numeric(18,2)) as Preco,                                            " +
+                    "cast(nie.Qtd as numeric(18,2)) as QtdCompra,                                          " +
+                    "cast(nie.ValorTotalLiquido as numeric(18,2)) as TotalCompraItem,                      " +
+                    "cast(pdt.PrecoVenda as numeric(18,2)) as PrecoVenda                                   " +
+                    "																				       " +
+                    "from NotasFiscaisEntrada nfe                                                          " +
+                    "inner join NFItemsEntrada nie on (nfe.Modelo = nie.Modelo and                         " +
+                    "                                  nfe.Serie = nie.Serie and                           " +
+                    "								  nfe.NumeroNF = nie.NumeroNF)                         " +
+                    "inner join produtos pdt on (nie.Produto = pdt.Codigo)                                 " +
+                    "inner join Fornecedor fnc on (nfe.Cliente = fnc.Codigo and nfe.UsarFornecedor = 1)    " +
+                    "where " + tipoPesquisa + " = @id and cast(nfe.DataLanc as date) between @dti and @dtf " +
+                    "order by DataLanc desc                                                                ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@tipo", tipo());
+                cmd.Parameters.AddWithValue("@tipo", tipoPesquisa);
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -226,14 +216,14 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtVenda(DataGridView dgv, string idProduto, string dti, string dtf)
+        public static void AtualizaDgvPdtVenda(DataGridView dgv, string tipo, string id, string dti, string dtf)
         {
             try
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
-                    "select                                                                          " +
+                    "select distinct                                                                 " +
                     "vda.Codigo as CodVenda,                                                         " +
                     "vda.Data as DataCadastro,                                                       " +
                     "concat(pdt.Codigo,'-',pdt.Descricao) as Produto,                                " +
@@ -241,16 +231,17 @@ namespace ConsultaTratorPecas.Main
                     "ivd.Qtd as QtdVendida,                                                          " +
                     "ivd.PrecoVenda,                                                                 " +
                     "(ivd.PrecoVenda * ivd.Qtd ) as TotalVendido,                                    " +
-                    "pdt.PrecoVenda as PrecoProdut,                                                  " +
+                    "pdt.PrecoVenda as PrecoProduto,                                                 " +
                     "concat(cli.Codigo, '-',cli.Descricao) as Cliente                                " +
                     "from Vendas vda                                                                 " +
                     "inner join ItemsVenda  ivd on (vda.Codigo = ivd.Codigo)                         " +
                     "inner join produtos pdt on (ivd.Produto = pdt.Codigo)                           " +
                     "inner join Clientes cli on (vda.Cliente = cli.Codigo)                           " +
-                    "where pdt.codigo = @idProduto and cast(vda.data as date) between @dti and @dtf  " +
+                    "inner join NFItemsEntrada nie on (ivd.Produto = nie.Produto)                    " +
+                    "where " + tipo + " = @id and cast(vda.data as date) between @dti and @dtf       " +
                     "order by vda.codigo desc                                                        ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
-                cmd.Parameters.AddWithValue("@idProduto", idProduto);
+                cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();
