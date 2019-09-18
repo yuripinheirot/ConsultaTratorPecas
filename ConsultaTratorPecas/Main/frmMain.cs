@@ -44,10 +44,23 @@ namespace ConsultaTratorPecas.Main
                 return;
             }
 
-            string tipoCompra = cbxPesquisarPor.Text.Substring(0, 1) == "F" ? "nie.ClienteItens" : "nie.produto";
-            string tipoVenda = cbxPesquisarPor.Text.Substring(0, 1) == "F" ? "nie.ClienteItens" : "ivd.produto";
+            string tipoCompra()
+            {
+                if (cbxPesquisarPor.Text == "Nenhum")
+                {
+                    return null;
+                }
+                else if (cbxPesquisarPor.Text == "Fornecedor")
+                {
+                    return "and p.Fornecedor = @id";
+                }
+                else
+                {
+                    return "and p.Codigo = @id";
+                }
+            }
 
-            data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra, tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra(), tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
             if (dgvPdtCompra.RowCount > 0)
             {
                 dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[8].Value = data.EstoqueEco(p.Cells[3].Value.ToString().Substring(0, p.Cells[3].Value.ToString().IndexOf("-"))));

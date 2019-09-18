@@ -52,7 +52,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.dgvPedProdutos = new System.Windows.Forms.DataGridView();
-            this.dsPedidoProduto = new ConsultaTratorPecas.PedidoProduto.dsPedidoProduto();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.tbxIdCliente = new System.Windows.Forms.MaskedTextBox();
@@ -81,11 +80,7 @@
             this.tbxCodigo = new System.Windows.Forms.MaskedTextBox();
             this.tbxDataFinEst = new System.Windows.Forms.DateTimePicker();
             this.tbxDataIniEst = new System.Windows.Forms.DateTimePicker();
-            this.dataTable1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsPdtVenda = new ConsultaTratorPecas.Main.dsPdtVenda();
             this.dgvPdtCompra = new System.Windows.Forms.DataGridView();
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsPdtCompa = new ConsultaTratorPecas.Main.dsPdtCompa();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -93,17 +88,22 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisarEst = new System.Windows.Forms.Button();
+            this.dsPedidoProduto = new ConsultaTratorPecas.PedidoProduto.dsPedidoProduto();
+            this.dataTable1BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPdtVenda = new ConsultaTratorPecas.Main.dsPdtVenda();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsPdtCompa = new ConsultaTratorPecas.Main.dsPdtCompa();
             this.tabControl1.SuspendLayout();
             this.tbcPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDgvPedidos)).BeginInit();
             this.tbxEstoque.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPdtCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtVenda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPdtCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtCompa)).BeginInit();
             this.SuspendLayout();
@@ -305,11 +305,6 @@
             this.dgvPedProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedProdutos.Size = new System.Drawing.Size(980, 135);
             this.dgvPedProdutos.TabIndex = 6;
-            // 
-            // dsPedidoProduto
-            // 
-            this.dsPedidoProduto.DataSetName = "dsPedidoProduto";
-            this.dsPedidoProduto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblValorTotal
             // 
@@ -577,7 +572,8 @@
             this.cbxPesquisarPor.FormattingEnabled = true;
             this.cbxPesquisarPor.Items.AddRange(new object[] {
             "Produto",
-            "Fornecedor"});
+            "Fornecedor",
+            "Nenhum"});
             this.cbxPesquisarPor.Location = new System.Drawing.Point(11, 22);
             this.cbxPesquisarPor.Name = "cbxPesquisarPor";
             this.cbxPesquisarPor.Size = new System.Drawing.Size(137, 21);
@@ -622,16 +618,6 @@
             this.tbxDataIniEst.Size = new System.Drawing.Size(95, 20);
             this.tbxDataIniEst.TabIndex = 2;
             // 
-            // dataTable1BindingSource2
-            // 
-            this.dataTable1BindingSource2.DataMember = "DataTable1";
-            this.dataTable1BindingSource2.DataSource = this.dsPdtVenda;
-            // 
-            // dsPdtVenda
-            // 
-            this.dsPdtVenda.DataSetName = "dsPdtVenda";
-            this.dsPdtVenda.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dgvPdtCompra
             // 
             this.dgvPdtCompra.AllowUserToAddRows = false;
@@ -664,16 +650,6 @@
             this.dgvPdtCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPdtCompra.Size = new System.Drawing.Size(980, 473);
             this.dgvPdtCompra.TabIndex = 5;
-            // 
-            // dataTable1BindingSource1
-            // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            this.dataTable1BindingSource1.DataSource = this.dsPdtCompa;
-            // 
-            // dsPdtCompa
-            // 
-            this.dsPdtCompa.DataSetName = "dsPdtCompa";
-            this.dsPdtCompa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label9
             // 
@@ -739,6 +715,31 @@
             this.btnPesquisarEst.UseVisualStyleBackColor = true;
             this.btnPesquisarEst.Click += new System.EventHandler(this.BtnPesquisarEst_Click);
             // 
+            // dsPedidoProduto
+            // 
+            this.dsPedidoProduto.DataSetName = "dsPedidoProduto";
+            this.dsPedidoProduto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource2
+            // 
+            this.dataTable1BindingSource2.DataMember = "DataTable1";
+            this.dataTable1BindingSource2.DataSource = this.dsPdtVenda;
+            // 
+            // dsPdtVenda
+            // 
+            this.dsPdtVenda.DataSetName = "dsPdtVenda";
+            this.dsPdtVenda.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataTable1BindingSource1
+            // 
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            this.dataTable1BindingSource1.DataSource = this.dsPdtCompa;
+            // 
+            // dsPdtCompa
+            // 
+            this.dsPdtCompa.DataSetName = "dsPdtCompa";
+            this.dsPdtCompa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,15 +760,15 @@
             this.tbcPedidos.ResumeLayout(false);
             this.tbcPedidos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDgvPedidos)).EndInit();
             this.tbxEstoque.ResumeLayout(false);
             this.tbxEstoque.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPdtCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPedidoProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtVenda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPdtCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtCompa)).EndInit();
             this.ResumeLayout(false);
