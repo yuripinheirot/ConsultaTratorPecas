@@ -42,16 +42,9 @@ namespace ConsultaTratorPecas.Main
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(tbxCodigo.Text))
-                {
-                    return;
-                }
-
-
-
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
-                                          string.IsNullOrWhiteSpace(tbxGrupo.Text) ? string.Empty : tbxGrupo.Text,
-                                          string.IsNullOrWhiteSpace(tbxCodigo.Text) ? string.Empty : tbxGrupo.Text,
+                                          string.IsNullOrWhiteSpace(tbxGrupo.Text) ? null : tbxGrupo.Text,
+                                          string.IsNullOrWhiteSpace(tbxCodigo.Text) ? null : tbxGrupo.Text,
                                           Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
                                           Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
                 try

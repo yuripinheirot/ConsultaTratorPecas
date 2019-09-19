@@ -39,7 +39,7 @@ namespace ConsultaTratorPecas.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"User=SYSDBA;   
  Password=masterkey;   
- Database=c:\ecosis\dados\ecodados.eco;   
+ Database=D:\dados\TratorPecas\ecodados.eco;   
  DataSource=localhost;   
  Port=3050;   
  Dialect=3;   

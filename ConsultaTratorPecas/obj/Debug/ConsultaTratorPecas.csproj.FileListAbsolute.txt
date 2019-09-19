@@ -43,3 +43,4 @@ C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\bin\Debu
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.Fornecedor.frmMainFornecedor.resources
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.csproj.CopyComplete
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.Estoque.frmGrupo.resources
+C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Debug\ConsultaTratorPecas.Estoque.frmGrupo.resources
