@@ -69,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProduto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Estoque\frmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estoque\frmGrupo.Designer.cs">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Estoque\frmMainProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </Compile>
     <EmbeddedResource Include="Cliente\frmMainCliente.resx">
       <DependentUpon>frmMainCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estoque\frmGrupo.resx">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estoque\frmMainProduto.resx">
       <DependentUpon>frmMainProduto.cs</DependentUpon>

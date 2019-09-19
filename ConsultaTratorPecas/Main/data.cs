@@ -187,72 +187,19 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtCompra(DataGridView dgv, string tipoPesquisa,  string dti, string dtf)
+        public static void AtualizaDgvPdtCompra(DataGridView dgv, string grupo, string fornecedor,  string dti, string dtf)
         {
 
             try
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
-                string query =
-                    "SELECT distinct                                                                  " +
-                    "																				  " +
-                    "																				  " +
-                    "                            T.PRODUTO AS CODIGO,                                 " +
-                    "                            P.DESCRICAO,                                         " +
-                    "                            P.Numero,                                            " +
-                    "                            P.Numero1,                                           " +
-                    "                            P.Numero2,                                           " +
-                    "                            P.Numero3,                                           " +
-                    "                            P.Numero4,                                           " +
-                    "                            DBO.fEstoqueProduto(T.PRODUTO, 0, 1) AS ESTOQUE,     " +
-                    "                            cast(P.PrecoCompra as numeric(15,2)) as PrecoCompra, " +
-                    "                            cast(P.PRECOVENDA as numeric(15,2)),                 " +
-                    "							sum(t.Qtd) as Venda,                                  " +
-                    "                            P.DataUltimaCompra,                                  " +
-                    "                            P.DataUltimaVenda,                                   " +
-                    "                            P.Fornecedor,                                        " +
-                    "                            P.RefFornecedor,                                     " +
-                    "                            g.codigo AS codGrupo,                                " +
-                    "                            g.Descricao AS DescGrupo,                            " +
-                    "                            dbo.FDT_UltimaNf(t.produto) AS DataUltimaNf,         " +
-                    "                            dbo.Fqtd_ultimaNf(t.produto) AS qtdent,              " +
-                    "                            dbo.FDt_ultimaVenda(t.produto) AS datavenda          " +
-                    "																				  " +
-                    "FROM VENDAS V                                                                    " +
-                    "INNER JOIN ItemsVenda T ON (T.Codigo = V.Codigo)                                 " +
-                    "INNER JOIN PRODUTOS P ON T.PRODUTO=P.CODIGO                                      " +
-                    "LEFT JOIN GrupoProdutos g ON p.grupo=g.codigo                                    " +
-                    "left outer join Empresa e on (t.CodEmpresa = e.Codigo)                           " +
-                    "WHERE p.codigo > 0                                                               " +
-                    "      and cast(v.Data as date) between @dti and @dtf             " +
-                    "group by                                                                         " +
-                    "                            T.PRODUTO,                                           " +
-                    "                            P.DESCRICAO,                                         " +
-                    "                            P.Numero,                                            " +
-                    "                            P.Numero1,                                           " +
-                    "                            P.Numero2,                                           " +
-                    "                            P.Numero3,                                           " +
-                    "                            P.Numero4,                                           " +
-                    "                            ESTOQUE,                                             " +
-                    "                            P.PrecoCompra,                                       " +
-                    "                            P.PRECOVENDA,                                        " +
-                    "                            P.DataUltimaCompra,                                  " +
-                    "                            P.DataUltimaVenda,                                   " +
-                    "                            P.Fornecedor,                                        " +
-                    "                            P.RefFornecedor,                                     " +
-                    "                            T.PRECOVENDA ,                                       " +
-                    "                            g.codigo,                                            " +
-                    "                            g.Descricao,                                         " +
-                    "                            dbo.FDT_UltimaNf(t.produto),                         " +
-                    "                            dbo.Fqtd_ultimaNf(t.produto) ,                       " +
-                    "                            dbo.FDt_ultimaVenda(t.produto)                       " +
-                    "order by t.Produto desc                                                          ";
-
-
+                string query = "EXECUTE SP_PRODUTOS_MAISVENDIDOS @dti, @dtf, @grupo, @fornecedor, 'bruno'";
 
 
                 SqlCommand cmd = new SqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@grupo", grupo);
+                cmd.Parameters.AddWithValue("@fornecedor", fornecedor);
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();

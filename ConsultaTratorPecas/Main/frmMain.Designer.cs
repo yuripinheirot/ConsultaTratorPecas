@@ -35,7 +35,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbcPedidos = new System.Windows.Forms.TabPage();
             this.tbxTotalLiquid = new System.Windows.Forms.TextBox();
@@ -77,6 +86,7 @@
             this.tbxEstoque = new System.Windows.Forms.TabPage();
             this.cbxPesquisarPor = new System.Windows.Forms.ComboBox();
             this.tbxDescricao = new System.Windows.Forms.TextBox();
+            this.tbxGrupo = new System.Windows.Forms.MaskedTextBox();
             this.tbxCodigo = new System.Windows.Forms.MaskedTextBox();
             this.tbxDataFinEst = new System.Windows.Forms.DateTimePicker();
             this.tbxDataIniEst = new System.Windows.Forms.DateTimePicker();
@@ -85,6 +95,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesquisarEst = new System.Windows.Forms.Button();
@@ -93,6 +104,20 @@
             this.dsPdtVenda = new ConsultaTratorPecas.Main.dsPdtVenda();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dsPdtCompa = new ConsultaTratorPecas.Main.dsPdtCompa();
+            this.dataTable1BindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.cODIGODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRECOVENDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precoVendaTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estEcoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataUltimaCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataUltimaNfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tbcPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedProdutos)).BeginInit();
@@ -106,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtVenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtCompa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -546,6 +572,7 @@
             // 
             this.tbxEstoque.Controls.Add(this.cbxPesquisarPor);
             this.tbxEstoque.Controls.Add(this.tbxDescricao);
+            this.tbxEstoque.Controls.Add(this.tbxGrupo);
             this.tbxEstoque.Controls.Add(this.tbxCodigo);
             this.tbxEstoque.Controls.Add(this.tbxDataFinEst);
             this.tbxEstoque.Controls.Add(this.tbxDataIniEst);
@@ -554,6 +581,7 @@
             this.tbxEstoque.Controls.Add(this.label7);
             this.tbxEstoque.Controls.Add(this.label2);
             this.tbxEstoque.Controls.Add(this.label17);
+            this.tbxEstoque.Controls.Add(this.label8);
             this.tbxEstoque.Controls.Add(this.label18);
             this.tbxEstoque.Controls.Add(this.label1);
             this.tbxEstoque.Controls.Add(this.btnPesquisarEst);
@@ -582,17 +610,29 @@
             // tbxDescricao
             // 
             this.tbxDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDescricao.Location = new System.Drawing.Point(227, 23);
+            this.tbxDescricao.Location = new System.Drawing.Point(312, 23);
             this.tbxDescricao.Name = "tbxDescricao";
             this.tbxDescricao.ReadOnly = true;
-            this.tbxDescricao.Size = new System.Drawing.Size(464, 20);
+            this.tbxDescricao.Size = new System.Drawing.Size(379, 20);
             this.tbxDescricao.TabIndex = 1;
             this.tbxDescricao.TabStop = false;
+            // 
+            // tbxGrupo
+            // 
+            this.tbxGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxGrupo.Location = new System.Drawing.Point(154, 23);
+            this.tbxGrupo.Mask = "000000";
+            this.tbxGrupo.Name = "tbxGrupo";
+            this.tbxGrupo.PromptChar = ' ';
+            this.tbxGrupo.Size = new System.Drawing.Size(79, 20);
+            this.tbxGrupo.TabIndex = 0;
+            this.tbxGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxGrupo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbxGrupo_KeyDown);
             // 
             // tbxCodigo
             // 
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxCodigo.Location = new System.Drawing.Point(154, 23);
+            this.tbxCodigo.Location = new System.Drawing.Point(239, 23);
             this.tbxCodigo.Mask = "000000";
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.PromptChar = ' ';
@@ -623,6 +663,7 @@
             this.dgvPdtCompra.AllowUserToAddRows = false;
             this.dgvPdtCompra.AllowUserToDeleteRows = false;
             this.dgvPdtCompra.AllowUserToOrderColumns = true;
+            this.dgvPdtCompra.AutoGenerateColumns = false;
             this.dgvPdtCompra.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -633,14 +674,29 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPdtCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPdtCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPdtCompra.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvPdtCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cODIGODataGridViewTextBoxColumn1,
+            this.dESCRICAODataGridViewTextBoxColumn,
+            this.precoCompraDataGridViewTextBoxColumn,
+            this.pRECOVENDADataGridViewTextBoxColumn,
+            this.precoVendaTDataGridViewTextBoxColumn,
+            this.estEcoDataGridViewTextBoxColumn,
+            this.dataUltimaCompraDataGridViewTextBoxColumn,
+            this.fornecedorDataGridViewTextBoxColumn,
+            this.refFornecedorDataGridViewTextBoxColumn,
+            this.codGrupoDataGridViewTextBoxColumn,
+            this.descGrupoDataGridViewTextBoxColumn,
+            this.dataUltimaNfDataGridViewTextBoxColumn,
+            this.qtentDataGridViewTextBoxColumn});
+            this.dgvPdtCompra.DataSource = this.dataTable1BindingSource3;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPdtCompra.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvPdtCompra.Location = new System.Drawing.Point(11, 68);
             this.dgvPdtCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPdtCompra.MultiSelect = false;
@@ -681,11 +737,20 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(224, 6);
+            this.label17.Location = new System.Drawing.Point(309, 7);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "Descrição";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(152, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Grupo";
             // 
             // label18
             // 
@@ -699,7 +764,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(152, 6);
+            this.label1.Location = new System.Drawing.Point(237, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 1;
@@ -740,6 +805,124 @@
             this.dsPdtCompa.DataSetName = "dsPdtCompa";
             this.dsPdtCompa.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // dataTable1BindingSource3
+            // 
+            this.dataTable1BindingSource3.DataMember = "DataTable1";
+            this.dataTable1BindingSource3.DataSource = this.dsPdtCompa;
+            // 
+            // cODIGODataGridViewTextBoxColumn1
+            // 
+            this.cODIGODataGridViewTextBoxColumn1.DataPropertyName = "CODIGO";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.cODIGODataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.cODIGODataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.cODIGODataGridViewTextBoxColumn1.Name = "cODIGODataGridViewTextBoxColumn1";
+            this.cODIGODataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cODIGODataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dESCRICAODataGridViewTextBoxColumn
+            // 
+            this.dESCRICAODataGridViewTextBoxColumn.DataPropertyName = "DESCRICAO";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dESCRICAODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dESCRICAODataGridViewTextBoxColumn.HeaderText = "Produto";
+            this.dESCRICAODataGridViewTextBoxColumn.Name = "dESCRICAODataGridViewTextBoxColumn";
+            this.dESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
+            this.dESCRICAODataGridViewTextBoxColumn.Width = 250;
+            // 
+            // precoCompraDataGridViewTextBoxColumn
+            // 
+            this.precoCompraDataGridViewTextBoxColumn.DataPropertyName = "PrecoCompra";
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.precoCompraDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            this.precoCompraDataGridViewTextBoxColumn.HeaderText = "P. Compra";
+            this.precoCompraDataGridViewTextBoxColumn.Name = "precoCompraDataGridViewTextBoxColumn";
+            this.precoCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRECOVENDADataGridViewTextBoxColumn
+            // 
+            this.pRECOVENDADataGridViewTextBoxColumn.DataPropertyName = "PRECOVENDA";
+            dataGridViewCellStyle10.Format = "N2";
+            this.pRECOVENDADataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.pRECOVENDADataGridViewTextBoxColumn.HeaderText = "P. Venda";
+            this.pRECOVENDADataGridViewTextBoxColumn.Name = "pRECOVENDADataGridViewTextBoxColumn";
+            this.pRECOVENDADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precoVendaTDataGridViewTextBoxColumn
+            // 
+            this.precoVendaTDataGridViewTextBoxColumn.DataPropertyName = "PrecoVendaT";
+            dataGridViewCellStyle11.Format = "N2";
+            this.precoVendaTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.precoVendaTDataGridViewTextBoxColumn.HeaderText = "P. Venda Tabela";
+            this.precoVendaTDataGridViewTextBoxColumn.Name = "precoVendaTDataGridViewTextBoxColumn";
+            this.precoVendaTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estEcoDataGridViewTextBoxColumn
+            // 
+            this.estEcoDataGridViewTextBoxColumn.DataPropertyName = "EstEco";
+            dataGridViewCellStyle12.Format = "N2";
+            this.estEcoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            this.estEcoDataGridViewTextBoxColumn.HeaderText = "Estoque Eco";
+            this.estEcoDataGridViewTextBoxColumn.Name = "estEcoDataGridViewTextBoxColumn";
+            this.estEcoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataUltimaCompraDataGridViewTextBoxColumn
+            // 
+            this.dataUltimaCompraDataGridViewTextBoxColumn.DataPropertyName = "DataUltimaCompra";
+            this.dataUltimaCompraDataGridViewTextBoxColumn.HeaderText = "Dt Ult Compra";
+            this.dataUltimaCompraDataGridViewTextBoxColumn.Name = "dataUltimaCompraDataGridViewTextBoxColumn";
+            this.dataUltimaCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fornecedorDataGridViewTextBoxColumn
+            // 
+            this.fornecedorDataGridViewTextBoxColumn.DataPropertyName = "Fornecedor";
+            this.fornecedorDataGridViewTextBoxColumn.HeaderText = "Fornecedor";
+            this.fornecedorDataGridViewTextBoxColumn.Name = "fornecedorDataGridViewTextBoxColumn";
+            this.fornecedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fornecedorDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // refFornecedorDataGridViewTextBoxColumn
+            // 
+            this.refFornecedorDataGridViewTextBoxColumn.DataPropertyName = "RefFornecedor";
+            this.refFornecedorDataGridViewTextBoxColumn.HeaderText = "RefFornecedor";
+            this.refFornecedorDataGridViewTextBoxColumn.Name = "refFornecedorDataGridViewTextBoxColumn";
+            this.refFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codGrupoDataGridViewTextBoxColumn
+            // 
+            this.codGrupoDataGridViewTextBoxColumn.DataPropertyName = "codGrupo";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.codGrupoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.codGrupoDataGridViewTextBoxColumn.HeaderText = "Cod Grupo";
+            this.codGrupoDataGridViewTextBoxColumn.Name = "codGrupoDataGridViewTextBoxColumn";
+            this.codGrupoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descGrupoDataGridViewTextBoxColumn
+            // 
+            this.descGrupoDataGridViewTextBoxColumn.DataPropertyName = "DescGrupo";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.descGrupoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.descGrupoDataGridViewTextBoxColumn.HeaderText = "Desc Grupo";
+            this.descGrupoDataGridViewTextBoxColumn.Name = "descGrupoDataGridViewTextBoxColumn";
+            this.descGrupoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataUltimaNfDataGridViewTextBoxColumn
+            // 
+            this.dataUltimaNfDataGridViewTextBoxColumn.DataPropertyName = "DataUltimaNf";
+            this.dataUltimaNfDataGridViewTextBoxColumn.HeaderText = "Data Ult NFe";
+            this.dataUltimaNfDataGridViewTextBoxColumn.Name = "dataUltimaNfDataGridViewTextBoxColumn";
+            this.dataUltimaNfDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // qtentDataGridViewTextBoxColumn
+            // 
+            this.qtentDataGridViewTextBoxColumn.DataPropertyName = "qtent";
+            dataGridViewCellStyle15.Format = "N2";
+            this.qtentDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            this.qtentDataGridViewTextBoxColumn.HeaderText = "Qtd Ent";
+            this.qtentDataGridViewTextBoxColumn.Name = "qtentDataGridViewTextBoxColumn";
+            this.qtentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -771,6 +954,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtVenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPdtCompa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -834,5 +1018,21 @@
         public System.Windows.Forms.TextBox tbxDescricao;
         private System.Windows.Forms.ComboBox cbxPesquisarPor;
         private System.Windows.Forms.Label label18;
+        public System.Windows.Forms.MaskedTextBox tbxGrupo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.BindingSource dataTable1BindingSource3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cODIGODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRICAODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pRECOVENDADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoVendaTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estEcoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataUltimaCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refFornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codGrupoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descGrupoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataUltimaNfDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtentDataGridViewTextBoxColumn;
     }
 }

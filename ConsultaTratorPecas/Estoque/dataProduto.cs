@@ -50,5 +50,30 @@ namespace ConsultaTratorPecas.Estoque
             }
 
         }
+
+        public static void AtualizaDgvGrupo(DataGridView dgv, string PalavraChave)
+        {
+            try
+            {
+                conexao = new SqlConnection(server);
+                conexao.Open();
+                string query = "select a.codigo, a.Descricao from GrupoProdutos a where a.Descricao like '%" + PalavraChave + "%' order by codigo asc;";
+                SqlCommand cmd = new SqlCommand(query, conexao);
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(table);
+                dgv.DataSource = table;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
     }
 }

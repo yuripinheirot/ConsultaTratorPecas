@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ConsultaTratorPecas.PedidoProduto;
+using ConsultaTratorPecas.Estoque;
 
 namespace ConsultaTratorPecas.Main
 {
@@ -46,28 +47,26 @@ namespace ConsultaTratorPecas.Main
                     return;
                 }
 
-                string tipoCompra()
-                {
-                    if (cbxPesquisarPor.Text == "Produto")
-                    {
-                        return "and p.Codigo = " + tbxCodigo.Text;
-                    }
-                    else if (cbxPesquisarPor.Text == "Fornecedor")
-                    {
-                        return "and p.Fornecedor = " + tbxCodigo.Text;
-                    }
-                    else
-                    {
-                        return "";
 
+
+                data.AtualizaDgvPdtCompra(dgvPdtCompra,
+                                          string.IsNullOrWhiteSpace(tbxGrupo.Text) ? string.Empty : tbxGrupo.Text,
+                                          string.IsNullOrWhiteSpace(tbxCodigo.Text) ? string.Empty : tbxGrupo.Text,
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
+                try
+                {
+                    if (dgvPdtCompra.RowCount > 0)
+                    {
+                        dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[5].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
                     }
                 }
-
-                data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra(), Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-                if (dgvPdtCompra.RowCount > 0)
+                catch (Exception e)
                 {
-                    dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[8].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
+
+                    MessageBox.Show(e.Message, "Erro ao buscar estoque do Eco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+
             }
             catch (Exception e)
             {
@@ -214,12 +213,13 @@ namespace ConsultaTratorPecas.Main
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+
+
+        private void TbxGrupo_KeyDown(object sender, KeyEventArgs e)
         {
-            foreach (DataGridViewRow item in dgvPdtCompra.Rows)
-            {
-                //item.Cells[8].Value = data.EstoqueEco();
-            }
+            frmGrupo grupo = new frmGrupo(this);
+            grupo.ShowDialog();
+
         }
     }
 }
