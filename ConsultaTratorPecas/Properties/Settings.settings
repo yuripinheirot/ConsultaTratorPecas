@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Conexao" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data source=DESKTOP-0G6SRK8\SQLEXPRESS;Initial Catalog=trator;UID=sa;pwd=masterkey</Value>
+      <Value Profile="(Default)">Data source=YURI-NOTE\SQLEXPRESS02;Initial Catalog=trator;UID=sa;pwd=master</Value>
     </Setting>
     <Setting Name="ConexaoFB" Type="System.String" Scope="User">
       <Value Profile="(Default)">User=SYSDBA;   

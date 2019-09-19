@@ -187,7 +187,7 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtCompra(DataGridView dgv, string tipoPesquisa, string id, string dti, string dtf)
+        public static void AtualizaDgvPdtCompra(DataGridView dgv, string tipoPesquisa,  string dti, string dtf)
         {
 
             try
@@ -213,7 +213,6 @@ namespace ConsultaTratorPecas.Main
                     "                            P.DataUltimaVenda,                                   " +
                     "                            P.Fornecedor,                                        " +
                     "                            P.RefFornecedor,                                     " +
-                    "                            --T.PRECOVENDA AS PrecoVendaT,                       " +
                     "                            g.codigo AS codGrupo,                                " +
                     "                            g.Descricao AS DescGrupo,                            " +
                     "                            dbo.FDT_UltimaNf(t.produto) AS DataUltimaNf,         " +
@@ -226,7 +225,7 @@ namespace ConsultaTratorPecas.Main
                     "LEFT JOIN GrupoProdutos g ON p.grupo=g.codigo                                    " +
                     "left outer join Empresa e on (t.CodEmpresa = e.Codigo)                           " +
                     "WHERE p.codigo > 0                                                               " +
-                    "      and v.Data between @dti and @dtf            "+tipoPesquisa+"               " +
+                    "      and cast(v.Data as date) between @dti and @dtf             " +
                     "group by                                                                         " +
                     "                            T.PRODUTO,                                           " +
                     "                            P.DESCRICAO,                                         " +
@@ -238,7 +237,6 @@ namespace ConsultaTratorPecas.Main
                     "                            ESTOQUE,                                             " +
                     "                            P.PrecoCompra,                                       " +
                     "                            P.PRECOVENDA,                                        " +
-                    "							--sum(t.Qtd) as Venda,                                " +
                     "                            P.DataUltimaCompra,                                  " +
                     "                            P.DataUltimaVenda,                                   " +
                     "                            P.Fornecedor,                                        " +
@@ -255,8 +253,6 @@ namespace ConsultaTratorPecas.Main
 
 
                 SqlCommand cmd = new SqlCommand(query, conexao);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@tipo", tipoPesquisa);
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();

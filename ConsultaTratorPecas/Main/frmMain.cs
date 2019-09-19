@@ -39,32 +39,42 @@ namespace ConsultaTratorPecas.Main
 
         public void AtualizaDgvPdtCompra()
         {
-            if (string.IsNullOrWhiteSpace(tbxCodigo.Text))
+            try
             {
-                return;
+                if (string.IsNullOrWhiteSpace(tbxCodigo.Text))
+                {
+                    return;
+                }
+
+                string tipoCompra()
+                {
+                    if (cbxPesquisarPor.Text == "Produto")
+                    {
+                        return "and p.Codigo = " + tbxCodigo.Text;
+                    }
+                    else if (cbxPesquisarPor.Text == "Fornecedor")
+                    {
+                        return "and p.Fornecedor = " + tbxCodigo.Text;
+                    }
+                    else
+                    {
+                        return "";
+
+                    }
+                }
+
+                data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra(), Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+                if (dgvPdtCompra.RowCount > 0)
+                {
+                    dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[8].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
             }
 
-            string tipoCompra()
-            {
-                if (cbxPesquisarPor.Text == "Nenhum")
-                {
-                    return null;
-                }
-                else if (cbxPesquisarPor.Text == "Fornecedor")
-                {
-                    return "and p.Fornecedor = @id";
-                }
-                else
-                {
-                    return "and p.Codigo = @id";
-                }
-            }
-
-            data.AtualizaDgvPdtCompra(dgvPdtCompra, tipoCompra(), tbxCodigo.Text, Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-            if (dgvPdtCompra.RowCount > 0)
-            {
-                dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[8].Value = data.EstoqueEco(p.Cells[3].Value.ToString().Substring(0, p.Cells[3].Value.ToString().IndexOf("-"))));
-            }
 
 
         }
