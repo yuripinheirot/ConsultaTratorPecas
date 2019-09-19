@@ -30,3 +30,4 @@ C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Relea
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.exe
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.pdb
 C:\Users\yurii\Documents\GitHub\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Fornecedor.frmMainFornecedor.resources
+C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmGrupo.resources

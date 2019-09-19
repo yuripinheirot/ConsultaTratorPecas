@@ -187,9 +187,8 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtCompra(DataGridView dgv, string grupo, string fornecedor,  string dti, string dtf)
+        public static void AtualizaDgvPdtCompra(DataGridView dgv,string  grupo, string fornecedor,  string dti, string dtf)
         {
-
             try
             {
                 conexao = new SqlConnection(server);

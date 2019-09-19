@@ -323,7 +323,7 @@ namespace ConsultaTratorPecas.Main {
             
             private global::System.Data.DataColumn columnDataUltimaNf;
             
-            private global::System.Data.DataColumn columnqtent;
+            private global::System.Data.DataColumn columnqtdent;
             
             private global::System.Data.DataColumn columndatavenda;
             
@@ -540,9 +540,9 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn qtentColumn {
+            public global::System.Data.DataColumn qtdentColumn {
                 get {
-                    return this.columnqtent;
+                    return this.columnqtdent;
                 }
             }
             
@@ -622,7 +622,7 @@ namespace ConsultaTratorPecas.Main {
                         string codGrupo, 
                         string DescGrupo, 
                         string DataUltimaNf, 
-                        string qtent, 
+                        string qtdent, 
                         string datavenda, 
                         string EstEco) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
@@ -649,7 +649,7 @@ namespace ConsultaTratorPecas.Main {
                         codGrupo,
                         DescGrupo,
                         DataUltimaNf,
-                        qtent,
+                        qtdent,
                         datavenda,
                         EstEco};
                 rowDataTable1Row.ItemArray = columnValuesArray;
@@ -696,7 +696,7 @@ namespace ConsultaTratorPecas.Main {
                 this.columncodGrupo = base.Columns["codGrupo"];
                 this.columnDescGrupo = base.Columns["DescGrupo"];
                 this.columnDataUltimaNf = base.Columns["DataUltimaNf"];
-                this.columnqtent = base.Columns["qtent"];
+                this.columnqtdent = base.Columns["qtdent"];
                 this.columndatavenda = base.Columns["datavenda"];
                 this.columnEstEco = base.Columns["EstEco"];
             }
@@ -748,8 +748,8 @@ namespace ConsultaTratorPecas.Main {
                 base.Columns.Add(this.columnDescGrupo);
                 this.columnDataUltimaNf = new global::System.Data.DataColumn("DataUltimaNf", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataUltimaNf);
-                this.columnqtent = new global::System.Data.DataColumn("qtent", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnqtent);
+                this.columnqtdent = new global::System.Data.DataColumn("qtdent", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnqtdent);
                 this.columndatavenda = new global::System.Data.DataColumn("datavenda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndatavenda);
                 this.columnEstEco = new global::System.Data.DataColumn("EstEco", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1248,17 +1248,17 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string qtent {
+            public string qtdent {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.qtentColumn]));
+                        return ((string)(this[this.tableDataTable1.qtdentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'qtent\' na tabela \'DataTable1\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'qtdent\' na tabela \'DataTable1\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.qtentColumn] = value;
+                    this[this.tableDataTable1.qtdentColumn] = value;
                 }
             }
             
@@ -1560,14 +1560,14 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsqtentNull() {
-                return this.IsNull(this.tableDataTable1.qtentColumn);
+            public bool IsqtdentNull() {
+                return this.IsNull(this.tableDataTable1.qtdentColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetqtentNull() {
-                this[this.tableDataTable1.qtentColumn] = global::System.Convert.DBNull;
+            public void SetqtdentNull() {
+                this[this.tableDataTable1.qtdentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

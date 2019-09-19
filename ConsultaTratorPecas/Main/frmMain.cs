@@ -43,15 +43,15 @@ namespace ConsultaTratorPecas.Main
             try
             {
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
-                                          string.IsNullOrWhiteSpace(tbxGrupo.Text) ? null : tbxGrupo.Text,
-                                          string.IsNullOrWhiteSpace(tbxCodigo.Text) ? null : tbxGrupo.Text,
+                                          string.IsNullOrWhiteSpace(tbxGrupo.Text) ? "0" : tbxGrupo.Text,
+                                          string.IsNullOrWhiteSpace(tbxCodigo.Text) ? "0" : tbxCodigo.Text,
                                           Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
                                           Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)
                     {
-                        dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[5].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
+                        dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells["estEcoDataGridViewTextBoxColumn"].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
                     }
                 }
                 catch (Exception e)
@@ -210,9 +210,11 @@ namespace ConsultaTratorPecas.Main
 
         private void TbxGrupo_KeyDown(object sender, KeyEventArgs e)
         {
-            frmGrupo grupo = new frmGrupo(this);
-            grupo.ShowDialog();
-
+            if (e.KeyCode == Keys.F2)
+            {
+                frmGrupo grupo = new frmGrupo(this);
+                grupo.ShowDialog();
+            }
         }
     }
 }
