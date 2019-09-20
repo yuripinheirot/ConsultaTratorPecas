@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ConsultaTratorPecas.PedidoProduto;
 using ConsultaTratorPecas.Estoque;
+using Microsoft.Office.Interop.Excel;
+
 
 namespace ConsultaTratorPecas.Main
 {
@@ -206,14 +208,33 @@ namespace ConsultaTratorPecas.Main
             }
         }
 
-
-
         private void TbxGrupo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F2)
             {
                 frmGrupo grupo = new frmGrupo(this);
                 grupo.ShowDialog();
+            }
+        }
+
+        private void BtnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                Microsoft.Office.Interop.Excel.Application app;
+                Microsoft.Office.Interop.Excel.Workbook WorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet WorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+
+                app = new Microsoft.Office.Interop.Excel.Application();
+                WorkBook = app.Workbooks.Add(misValue);
+                WorkSheet = (Worksheet)Workbook
+            }
+            catch (Exception er)
+            {
+
+                MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
