@@ -103,6 +103,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Main\dsPdtCompa.cs">
+      <DependentUpon>dsPdtCompa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Main\dsPdtCompa.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

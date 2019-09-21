@@ -17,6 +17,60 @@ namespace ConsultaTratorPecas.Main
     public partial class frmMain : Form
     {
         //metodos
+        async Task ExportarExcel(ProgressBar progress, DataGridView dgv)
+        {
+
+            try
+            {
+                SaveFileDialog salvar = new SaveFileDialog();
+                Microsoft.Office.Interop.Excel.Application app;
+                Microsoft.Office.Interop.Excel.Workbook WorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet WorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+
+                app = new Microsoft.Office.Interop.Excel.Application();
+                WorkBook = app.Workbooks.Add(misValue);
+                WorkSheet = (Worksheet)WorkBook.Worksheets.get_Item(1);
+
+                int i = 0;
+                int j = 0;
+
+                progress.Visible = true;
+                progress.Maximum = dgv.RowCount;
+
+                     for (i = 0; i <= dgvPdtCompra.RowCount - 1; i++)
+                     {
+                         progress.Increment(1);
+
+                         for (j = 0; j <= dgvPdtCompra.ColumnCount - 1; j++)
+                         {
+                             DataGridViewCell cell = dgvPdtCompra[j, i];
+                             WorkSheet.Cells[i + 1, j + 1] = cell.Value;
+                         }
+                     }
+                 
+
+                salvar.Title = "Salvar para Excel";
+                salvar.Filter = "Arquivo do Excel *.xls | *.xls";
+                if (salvar.ShowDialog() == DialogResult.OK)
+                {
+                    WorkBook.SaveAs(salvar.FileName, XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+
+                    XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                    WorkBook.Close(true, misValue, misValue);
+                    app.Quit(); // encerra o excel
+                    MessageBox.Show("Exportado com sucesso!");
+                }
+
+                progress.Value = 0;
+                progress.Visible = false;
+            }
+            catch (Exception er)
+            {
+
+                MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         public void AtualizaDgvPedido()
         {
             string cliente()
@@ -47,8 +101,8 @@ namespace ConsultaTratorPecas.Main
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
                                           string.IsNullOrWhiteSpace(tbxGrupo.Text) ? "0" : tbxGrupo.Text,
                                           string.IsNullOrWhiteSpace(tbxCodigo.Text) ? "0" : tbxCodigo.Text,
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)
@@ -61,6 +115,12 @@ namespace ConsultaTratorPecas.Main
 
                     MessageBox.Show(e.Message, "Erro ao buscar estoque do Eco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+
+                if (dgvPdtCompra.RowCount < 1)
+                {
+                    MessageBox.Show("Nenhum registro encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                lblCompras.Text = "Compras encontradas: " + dgvPdtCompra.RowCount;
 
             }
             catch (Exception e)
@@ -108,7 +168,6 @@ namespace ConsultaTratorPecas.Main
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            cbxPesquisarPor.Text = "Fornecedor";
         }
 
         private void TbxIdCliente_KeyDown(object sender, KeyEventArgs e)
@@ -144,16 +203,10 @@ namespace ConsultaTratorPecas.Main
         {
             if (e.KeyCode == Keys.F2)
             {
-                if (cbxPesquisarPor.Text == "Produto")
-                {
-                    Estoque.frmMainProduto produto = new Estoque.frmMainProduto(this);
-                    produto.ShowDialog();
-                }
-                else
-                {
-                    Fornecedor.frmMainFornecedor fornecedor = new Fornecedor.frmMainFornecedor(this);
-                    fornecedor.ShowDialog();
-                }
+
+                Fornecedor.frmMainFornecedor fornecedor = new Fornecedor.frmMainFornecedor(this);
+                fornecedor.ShowDialog();
+
 
             }
         }
@@ -192,14 +245,11 @@ namespace ConsultaTratorPecas.Main
             {
                 if (!string.IsNullOrWhiteSpace(tbxCodigo.Text))
                 {
-                    if (cbxPesquisarPor.Text == "Fornecedor")
-                    {
-                        tbxDescricao.Text = data.NomeFornecedor(tbxCodigo.Text);
-                    }
-                    else
-                    {
-                        tbxDescricao.Text = data.NomeProduto(tbxCodigo.Text);
-                    }
+                    tbxDescricao.Text = data.NomeFornecedor(tbxCodigo.Text);
+                }
+                else
+                {
+                    tbxDescricao.Text = null;
                 }
             }
             catch (Exception erro)
@@ -217,19 +267,11 @@ namespace ConsultaTratorPecas.Main
             }
         }
 
-        private void BtnExcel_Click(object sender, EventArgs e)
+        private async void BtnExcel_Click(object sender, EventArgs e)
         {
             try
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                Microsoft.Office.Interop.Excel.Application app;
-                Microsoft.Office.Interop.Excel.Workbook WorkBook;
-                Microsoft.Office.Interop.Excel.Worksheet WorkSheet;
-                object misValue = System.Reflection.Missing.Value;
-
-                app = new Microsoft.Office.Interop.Excel.Application();
-                WorkBook = app.Workbooks.Add(misValue);
-                WorkSheet = (Worksheet)Workbook
+                await ExportarExcel(progressBar, dgvPdtCompra);
             }
             catch (Exception er)
             {

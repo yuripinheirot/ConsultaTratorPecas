@@ -193,7 +193,7 @@ namespace ConsultaTratorPecas.Main
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
-                string query = "EXECUTE SP_PRODUTOS_MAISVENDIDOS @dti, @dtf, @grupo, @fornecedor, 'bruno'";
+                string query = "EXECUTE ECO_RELATORIO @dti, @dtf, @grupo, @fornecedor, 'bruno'";
 
 
                 SqlCommand cmd = new SqlCommand(query, conexao);
