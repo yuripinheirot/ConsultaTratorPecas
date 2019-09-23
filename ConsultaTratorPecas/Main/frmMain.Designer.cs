@@ -84,6 +84,7 @@
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsDgvPedidos = new ConsultaTratorPecas.Main.dsDgvPedidos();
             this.tbxEstoque = new System.Windows.Forms.TabPage();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.btnExcel = new System.Windows.Forms.Button();
             this.tbxDescricao = new System.Windows.Forms.TextBox();
             this.tbxGrupo = new System.Windows.Forms.MaskedTextBox();
@@ -105,19 +106,24 @@
             this.dsPdtVenda = new ConsultaTratorPecas.Main.dsPdtVenda();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cODIGODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRECOVENDADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtdent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estEcoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NUMERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NUMERO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NUMERO2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NUMERO3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NUMERO4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataUltimaCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataUltimaNfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tabControl1.SuspendLayout();
             this.tbcPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedProdutos)).BeginInit();
@@ -593,6 +599,14 @@
             this.tbxEstoque.Text = "Estoque";
             this.tbxEstoque.UseVisualStyleBackColor = true;
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(26, 621);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(892, 23);
+            this.progressBar.TabIndex = 8;
+            this.progressBar.Visible = false;
+            // 
             // btnExcel
             // 
             this.btnExcel.BackgroundImage = global::ConsultaTratorPecas.Properties.Resources.icons8_ms_excel_48;
@@ -672,15 +686,21 @@
             this.dgvPdtCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPdtCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cODIGODataGridViewTextBoxColumn1,
+            this.RefFornecedor,
             this.dESCRICAODataGridViewTextBoxColumn,
             this.precoCompraDataGridViewTextBoxColumn,
             this.pRECOVENDADataGridViewTextBoxColumn,
             this.qtdent,
             this.VENDA,
             this.estEcoDataGridViewTextBoxColumn,
+            this.NUMERO,
+            this.NUMERO1,
+            this.NUMERO2,
+            this.NUMERO3,
+            this.NUMERO4,
+            this.refFornecedorDataGridViewTextBoxColumn,
             this.dataUltimaCompraDataGridViewTextBoxColumn,
             this.fornecedorDataGridViewTextBoxColumn,
-            this.refFornecedorDataGridViewTextBoxColumn,
             this.codGrupoDataGridViewTextBoxColumn,
             this.descGrupoDataGridViewTextBoxColumn,
             this.dataUltimaNfDataGridViewTextBoxColumn});
@@ -806,6 +826,13 @@
             this.cODIGODataGridViewTextBoxColumn1.ReadOnly = true;
             this.cODIGODataGridViewTextBoxColumn1.Width = 50;
             // 
+            // RefFornecedor
+            // 
+            this.RefFornecedor.DataPropertyName = "RefFornecedor";
+            this.RefFornecedor.HeaderText = "RefFornecedor";
+            this.RefFornecedor.Name = "RefFornecedor";
+            this.RefFornecedor.ReadOnly = true;
+            // 
             // dESCRICAODataGridViewTextBoxColumn
             // 
             this.dESCRICAODataGridViewTextBoxColumn.DataPropertyName = "DESCRICAO";
@@ -865,6 +892,50 @@
             this.estEcoDataGridViewTextBoxColumn.ReadOnly = true;
             this.estEcoDataGridViewTextBoxColumn.Width = 65;
             // 
+            // NUMERO
+            // 
+            this.NUMERO.DataPropertyName = "NUMERO";
+            this.NUMERO.HeaderText = "NUMERO";
+            this.NUMERO.Name = "NUMERO";
+            this.NUMERO.ReadOnly = true;
+            // 
+            // NUMERO1
+            // 
+            this.NUMERO1.DataPropertyName = "NUMERO1";
+            this.NUMERO1.HeaderText = "NUMERO1";
+            this.NUMERO1.Name = "NUMERO1";
+            this.NUMERO1.ReadOnly = true;
+            // 
+            // NUMERO2
+            // 
+            this.NUMERO2.DataPropertyName = "NUMERO2";
+            this.NUMERO2.HeaderText = "NUMERO2";
+            this.NUMERO2.Name = "NUMERO2";
+            this.NUMERO2.ReadOnly = true;
+            // 
+            // NUMERO3
+            // 
+            this.NUMERO3.DataPropertyName = "NUMERO3";
+            this.NUMERO3.HeaderText = "NUMERO3";
+            this.NUMERO3.Name = "NUMERO3";
+            this.NUMERO3.ReadOnly = true;
+            // 
+            // NUMERO4
+            // 
+            this.NUMERO4.DataPropertyName = "NUMERO4";
+            this.NUMERO4.HeaderText = "NUMERO4";
+            this.NUMERO4.Name = "NUMERO4";
+            this.NUMERO4.ReadOnly = true;
+            // 
+            // refFornecedorDataGridViewTextBoxColumn
+            // 
+            this.refFornecedorDataGridViewTextBoxColumn.DataPropertyName = "RefFornecedor";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.refFornecedorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.refFornecedorDataGridViewTextBoxColumn.HeaderText = "RefFornecedor";
+            this.refFornecedorDataGridViewTextBoxColumn.Name = "refFornecedorDataGridViewTextBoxColumn";
+            this.refFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // dataUltimaCompraDataGridViewTextBoxColumn
             // 
             this.dataUltimaCompraDataGridViewTextBoxColumn.DataPropertyName = "DataUltimaCompra";
@@ -880,15 +951,6 @@
             this.fornecedorDataGridViewTextBoxColumn.Name = "fornecedorDataGridViewTextBoxColumn";
             this.fornecedorDataGridViewTextBoxColumn.ReadOnly = true;
             this.fornecedorDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // refFornecedorDataGridViewTextBoxColumn
-            // 
-            this.refFornecedorDataGridViewTextBoxColumn.DataPropertyName = "RefFornecedor";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.refFornecedorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.refFornecedorDataGridViewTextBoxColumn.HeaderText = "RefFornecedor";
-            this.refFornecedorDataGridViewTextBoxColumn.Name = "refFornecedorDataGridViewTextBoxColumn";
-            this.refFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // codGrupoDataGridViewTextBoxColumn
             // 
@@ -917,14 +979,6 @@
             this.dataUltimaNfDataGridViewTextBoxColumn.Name = "dataUltimaNfDataGridViewTextBoxColumn";
             this.dataUltimaNfDataGridViewTextBoxColumn.ReadOnly = true;
             this.dataUltimaNfDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(26, 621);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(892, 23);
-            this.progressBar.TabIndex = 8;
-            this.progressBar.Visible = false;
             // 
             // frmMain
             // 
@@ -1023,19 +1077,25 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.BindingSource dataTable1BindingSource3;
         private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODIGODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RefFornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRICAODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoCompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRECOVENDADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtdent;
         private System.Windows.Forms.DataGridViewTextBoxColumn VENDA;
         private System.Windows.Forms.DataGridViewTextBoxColumn estEcoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refFornecedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataUltimaCompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fornecedorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn refFornecedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codGrupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descGrupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataUltimaNfDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
