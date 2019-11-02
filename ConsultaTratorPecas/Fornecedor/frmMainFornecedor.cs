@@ -63,7 +63,7 @@ namespace ConsultaTratorPecas.Fornecedor
 
         private void BtnInserir_Click(object sender, EventArgs e)
         {
-            main.tbxCodigo.Text = dgvFornecedor.CurrentRow.Cells[0].Value.ToString();
+            main.tbxFornecedor.Text = dgvFornecedor.CurrentRow.Cells[0].Value.ToString();
             Close();
         }
     }

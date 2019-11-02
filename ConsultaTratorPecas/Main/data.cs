@@ -187,7 +187,7 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtCompra(DataGridView dgv,string  grupo, string fornecedor,  string dti, string dtf)
+        public static void AtualizaDgvPdtCompraNFE(DataGridView dgv, string grupo, string fornecedor, string dti, string dtf)
         {
             try
             {
@@ -218,32 +218,55 @@ namespace ConsultaTratorPecas.Main
 
         }
 
-        public static void AtualizaDgvPdtVenda(DataGridView dgv, string tipo, string id, string dti, string dtf)
+        public static void AtualizaDgvPdtCompra(DataGridView dgv, string grupo, string fornecedor, string dti, string dtf)
         {
             try
             {
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
-                    "select distinct                                                                 " +
-                    "vda.Codigo as CodVenda,                                                         " +
-                    "vda.Data as DataCadastro,                                                       " +
-                    "concat(pdt.Codigo,'-',pdt.Descricao) as Produto,                                " +
-                    "pdt.RefFornecedor,                                                              " +
-                    "ivd.Qtd as QtdVendida,                                                          " +
-                    "ivd.PrecoVenda,                                                                 " +
-                    "(ivd.PrecoVenda * ivd.Qtd ) as TotalVendido,                                    " +
-                    "pdt.PrecoVenda as PrecoProduto,                                                 " +
-                    "concat(cli.Codigo, '-',cli.Descricao) as Cliente                                " +
-                    "from Vendas vda                                                                 " +
-                    "inner join ItemsVenda  ivd on (vda.Codigo = ivd.Codigo)                         " +
-                    "inner join produtos pdt on (ivd.Produto = pdt.Codigo)                           " +
-                    "inner join Clientes cli on (vda.Cliente = cli.Codigo)                           " +
-                    "inner join NFItemsEntrada nie on (ivd.Produto = nie.Produto)                    " +
-                    "where " + tipo + " = @id and cast(vda.data as date) between @dti and @dtf       " +
-                    "order by vda.codigo desc                                                        ";
+                    "select                                                                                                        " +
+                    "cpa.NF,                                                                                                       " +
+                    "icp.Produto,                                                                                                  " +
+                    "pdt.Descricao,                                                                                                " +
+                    "cast(icp.PrecoCompra as numeric(15,2)) as PrecoCompra,                                                        " +
+                    "cast(icp.PrecoVenda as numeric(15,2)) as PrecoVenda,                                                          " +
+                    "cast(icp.Qtd as numeric(15,2)) as QtdEntrada,                                                                 " +
+                    "(SELECT SUM(I.QTD) FROM VENDAS V                                                                              " +
+                    "	INNER JOIN ITEMSVENDA I ON V.CODIGO=I.CODIGO and i.Produto = pdt.Codigo                                    " +
+                    "	INNER JOIN PRODUTOS P ON P.CODIGO=I.PRODUTO and p.Codigo = pdt.Codigo                                      " +
+                    "WHERE V.DATA>=@DTI  AND V.DATA<=@DTF AND (V.CANCELADA=0 OR V.Cancelada IS NULL)  AND I.QTD>0) as QtdVendida,  " +
+                    "'' as estEco,                                                                                                 " +
+                    "pdt.Numero,                                                                                                   " +
+                    "pdt.Numero1,                                                                                                  " +
+                    "pdt.Numero2,                                                                                                  " +
+                    "pdt.Numero3,                                                                                                  " +
+                    "pdt.Numero4,                                                                                                  " +
+                    "cast(cpa.Data as date) as Data,                                                                               " +
+                    "grp.Codigo as CodGrupo,                                                                                       " +
+                    "grp.Descricao as Grupo,                                                                                       " +
+                    "fcd.Codigo as CodFornecedor,                                                                                  " +
+                    "fcd.Descricao as Fornecedor                                                                                   " +
+                    "																											   " +
+                    "from compras cpa                                                                                              " +
+                    "left outer join ItemsCompra icp on (cpa.Codigo = icp.Codigo)                                                  " +
+                    "left outer join produtos pdt on (icp.Produto = pdt.Codigo)                                                    " +
+                    "left outer join Fornecedor fcd on (cpa.Fornecedor = fcd.Codigo)                                               " +
+                    "left outer join GrupoProdutos grp on (pdt.Grupo = grp.Codigo)                                                 " +
+                    "where                                                                                                         " +
+                    "																											   " +
+                    "icp.codigo = (select max(codigo) from ItemsCompra where produto = icp.produto)                            " +
+                    "and cpa.Data between @dti and @dtf                                                                                " +
+                    grupo + fornecedor+
+                    "and cpa.Fechada = 1                                                                                           " +
+                    "and produto is not null                                                                                       " +
+                    "																											   " +
+                    "order by pdt.Descricao asc                                                                                    ";
+
+
                 SqlCommand cmd = new SqlCommand(query, conexao);
-                cmd.Parameters.AddWithValue("@id", id);
+                //cmd.Parameters.AddWithValue("@grupo", grupo);
+                //cmd.Parameters.AddWithValue("@fornecedor", fornecedor);
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -262,6 +285,8 @@ namespace ConsultaTratorPecas.Main
             }
 
         }
+
+
 
 
     }

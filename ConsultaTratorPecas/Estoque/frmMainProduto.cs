@@ -84,7 +84,7 @@ namespace ConsultaTratorPecas.Estoque
             {
                 if (main != null)
                 {
-                    main.tbxCodigo.Text = dgvProdutos.CurrentRow.Cells[0].Value.ToString();
+                    main.tbxFornecedor.Text = dgvProdutos.CurrentRow.Cells[0].Value.ToString();
                     main.tbxDescricao.Text = dgvProdutos.CurrentRow.Cells[1].Value.ToString();
                     Close();
                 }

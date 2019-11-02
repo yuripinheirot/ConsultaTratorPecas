@@ -25,7 +25,8 @@ namespace ConsultaTratorPecas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data source=YURI-NOTE\\SQLEXPRESS02;Initial Catalog=trator;UID=sa;pwd=master")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data source=DESKTOP-0G6SRK8\\SQLEXPRESS;Initial Catalog=bd_tratorpecas;UID=sa;pwd=" +
+            "masterkey")]
         public string Conexao {
             get {
                 return ((string)(this["Conexao"]));
