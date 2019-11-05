@@ -922,19 +922,23 @@ namespace ConsultaTratorPecas.Main {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable2DataTable : global::System.Data.TypedTableBase<DataTable2Row> {
             
-            private global::System.Data.DataColumn columnNF;
+            private global::System.Data.DataColumn columncodProduto;
             
-            private global::System.Data.DataColumn columnPRODUTO;
+            private global::System.Data.DataColumn columndescProduto;
             
-            private global::System.Data.DataColumn columnDESCRICAO;
+            private global::System.Data.DataColumn columnRefFornecedor;
             
-            private global::System.Data.DataColumn columnPRECOCOMPRA;
+            private global::System.Data.DataColumn columnPrecoCompra;
             
-            private global::System.Data.DataColumn columnPRECOVENDA;
+            private global::System.Data.DataColumn columnPrecoVenda;
             
-            private global::System.Data.DataColumn columnQTD;
+            private global::System.Data.DataColumn columnqtdUltimaEnt;
             
-            private global::System.Data.DataColumn columnESTECO;
+            private global::System.Data.DataColumn columnQtdVendida;
+            
+            private global::System.Data.DataColumn columnDataUltimaVenda;
+            
+            private global::System.Data.DataColumn columnEstEco;
             
             private global::System.Data.DataColumn columnNUMERO;
             
@@ -946,17 +950,13 @@ namespace ConsultaTratorPecas.Main {
             
             private global::System.Data.DataColumn columnNUMERO4;
             
-            private global::System.Data.DataColumn columnQTDVENDIDA;
+            private global::System.Data.DataColumn columnDataUltimaCompra;
             
-            private global::System.Data.DataColumn columnDATA;
+            private global::System.Data.DataColumn columnFornecedor;
             
-            private global::System.Data.DataColumn columnCODGRUPO;
+            private global::System.Data.DataColumn columnCodGrupo;
             
-            private global::System.Data.DataColumn columnGRUPO;
-            
-            private global::System.Data.DataColumn columnCODFORNECEDOR;
-            
-            private global::System.Data.DataColumn columnFORNECEDOR;
+            private global::System.Data.DataColumn columnDescGrupo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -993,57 +993,73 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NFColumn {
+            public global::System.Data.DataColumn codProdutoColumn {
                 get {
-                    return this.columnNF;
+                    return this.columncodProduto;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PRODUTOColumn {
+            public global::System.Data.DataColumn descProdutoColumn {
                 get {
-                    return this.columnPRODUTO;
+                    return this.columndescProduto;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DESCRICAOColumn {
+            public global::System.Data.DataColumn RefFornecedorColumn {
                 get {
-                    return this.columnDESCRICAO;
+                    return this.columnRefFornecedor;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PRECOCOMPRAColumn {
+            public global::System.Data.DataColumn PrecoCompraColumn {
                 get {
-                    return this.columnPRECOCOMPRA;
+                    return this.columnPrecoCompra;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PRECOVENDAColumn {
+            public global::System.Data.DataColumn PrecoVendaColumn {
                 get {
-                    return this.columnPRECOVENDA;
+                    return this.columnPrecoVenda;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn QTDColumn {
+            public global::System.Data.DataColumn qtdUltimaEntColumn {
                 get {
-                    return this.columnQTD;
+                    return this.columnqtdUltimaEnt;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ESTECOColumn {
+            public global::System.Data.DataColumn QtdVendidaColumn {
                 get {
-                    return this.columnESTECO;
+                    return this.columnQtdVendida;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DataUltimaVendaColumn {
+                get {
+                    return this.columnDataUltimaVenda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EstEcoColumn {
+                get {
+                    return this.columnEstEco;
                 }
             }
             
@@ -1089,49 +1105,33 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn QTDVENDIDAColumn {
+            public global::System.Data.DataColumn DataUltimaCompraColumn {
                 get {
-                    return this.columnQTDVENDIDA;
+                    return this.columnDataUltimaCompra;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DATAColumn {
+            public global::System.Data.DataColumn FornecedorColumn {
                 get {
-                    return this.columnDATA;
+                    return this.columnFornecedor;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CODGRUPOColumn {
+            public global::System.Data.DataColumn CodGrupoColumn {
                 get {
-                    return this.columnCODGRUPO;
+                    return this.columnCodGrupo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GRUPOColumn {
+            public global::System.Data.DataColumn DescGrupoColumn {
                 get {
-                    return this.columnGRUPO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CODFORNECEDORColumn {
-                get {
-                    return this.columnCODFORNECEDOR;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FORNECEDORColumn {
-                get {
-                    return this.columnFORNECEDOR;
+                    return this.columnDescGrupo;
                 }
             }
             
@@ -1173,44 +1173,44 @@ namespace ConsultaTratorPecas.Main {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DataTable2Row AddDataTable2Row(
-                        string NF, 
-                        string PRODUTO, 
-                        string DESCRICAO, 
-                        string PRECOCOMPRA, 
-                        string PRECOVENDA, 
-                        string QTD, 
-                        string ESTECO, 
+                        string codProduto, 
+                        string descProduto, 
+                        string RefFornecedor, 
+                        string PrecoCompra, 
+                        string PrecoVenda, 
+                        string qtdUltimaEnt, 
+                        string QtdVendida, 
+                        string DataUltimaVenda, 
+                        string EstEco, 
                         string NUMERO, 
                         string NUMERO1, 
                         string NUMERO2, 
                         string NUMERO3, 
                         string NUMERO4, 
-                        string QTDVENDIDA, 
-                        string DATA, 
-                        string CODGRUPO, 
-                        string GRUPO, 
-                        string CODFORNECEDOR, 
-                        string FORNECEDOR) {
+                        string DataUltimaCompra, 
+                        string Fornecedor, 
+                        string CodGrupo, 
+                        string DescGrupo) {
                 DataTable2Row rowDataTable2Row = ((DataTable2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        NF,
-                        PRODUTO,
-                        DESCRICAO,
-                        PRECOCOMPRA,
-                        PRECOVENDA,
-                        QTD,
-                        ESTECO,
+                        codProduto,
+                        descProduto,
+                        RefFornecedor,
+                        PrecoCompra,
+                        PrecoVenda,
+                        qtdUltimaEnt,
+                        QtdVendida,
+                        DataUltimaVenda,
+                        EstEco,
                         NUMERO,
                         NUMERO1,
                         NUMERO2,
                         NUMERO3,
                         NUMERO4,
-                        QTDVENDIDA,
-                        DATA,
-                        CODGRUPO,
-                        GRUPO,
-                        CODFORNECEDOR,
-                        FORNECEDOR};
+                        DataUltimaCompra,
+                        Fornecedor,
+                        CodGrupo,
+                        DescGrupo};
                 rowDataTable2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable2Row);
                 return rowDataTable2Row;
@@ -1233,43 +1233,47 @@ namespace ConsultaTratorPecas.Main {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnNF = base.Columns["NF"];
-                this.columnPRODUTO = base.Columns["PRODUTO"];
-                this.columnDESCRICAO = base.Columns["DESCRICAO"];
-                this.columnPRECOCOMPRA = base.Columns["PRECOCOMPRA"];
-                this.columnPRECOVENDA = base.Columns["PRECOVENDA"];
-                this.columnQTD = base.Columns["QTD"];
-                this.columnESTECO = base.Columns["ESTECO"];
+                this.columncodProduto = base.Columns["codProduto"];
+                this.columndescProduto = base.Columns["descProduto"];
+                this.columnRefFornecedor = base.Columns["RefFornecedor"];
+                this.columnPrecoCompra = base.Columns["PrecoCompra"];
+                this.columnPrecoVenda = base.Columns["PrecoVenda"];
+                this.columnqtdUltimaEnt = base.Columns["qtdUltimaEnt"];
+                this.columnQtdVendida = base.Columns["QtdVendida"];
+                this.columnDataUltimaVenda = base.Columns["DataUltimaVenda"];
+                this.columnEstEco = base.Columns["EstEco"];
                 this.columnNUMERO = base.Columns["NUMERO"];
                 this.columnNUMERO1 = base.Columns["NUMERO1"];
                 this.columnNUMERO2 = base.Columns["NUMERO2"];
                 this.columnNUMERO3 = base.Columns["NUMERO3"];
                 this.columnNUMERO4 = base.Columns["NUMERO4"];
-                this.columnQTDVENDIDA = base.Columns["QTDVENDIDA"];
-                this.columnDATA = base.Columns["DATA"];
-                this.columnCODGRUPO = base.Columns["CODGRUPO"];
-                this.columnGRUPO = base.Columns["GRUPO"];
-                this.columnCODFORNECEDOR = base.Columns["CODFORNECEDOR"];
-                this.columnFORNECEDOR = base.Columns["FORNECEDOR"];
+                this.columnDataUltimaCompra = base.Columns["DataUltimaCompra"];
+                this.columnFornecedor = base.Columns["Fornecedor"];
+                this.columnCodGrupo = base.Columns["CodGrupo"];
+                this.columnDescGrupo = base.Columns["DescGrupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnNF = new global::System.Data.DataColumn("NF", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNF);
-                this.columnPRODUTO = new global::System.Data.DataColumn("PRODUTO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPRODUTO);
-                this.columnDESCRICAO = new global::System.Data.DataColumn("DESCRICAO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESCRICAO);
-                this.columnPRECOCOMPRA = new global::System.Data.DataColumn("PRECOCOMPRA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPRECOCOMPRA);
-                this.columnPRECOVENDA = new global::System.Data.DataColumn("PRECOVENDA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPRECOVENDA);
-                this.columnQTD = new global::System.Data.DataColumn("QTD", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQTD);
-                this.columnESTECO = new global::System.Data.DataColumn("ESTECO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnESTECO);
+                this.columncodProduto = new global::System.Data.DataColumn("codProduto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodProduto);
+                this.columndescProduto = new global::System.Data.DataColumn("descProduto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescProduto);
+                this.columnRefFornecedor = new global::System.Data.DataColumn("RefFornecedor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRefFornecedor);
+                this.columnPrecoCompra = new global::System.Data.DataColumn("PrecoCompra", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecoCompra);
+                this.columnPrecoVenda = new global::System.Data.DataColumn("PrecoVenda", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecoVenda);
+                this.columnqtdUltimaEnt = new global::System.Data.DataColumn("qtdUltimaEnt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnqtdUltimaEnt);
+                this.columnQtdVendida = new global::System.Data.DataColumn("QtdVendida", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQtdVendida);
+                this.columnDataUltimaVenda = new global::System.Data.DataColumn("DataUltimaVenda", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataUltimaVenda);
+                this.columnEstEco = new global::System.Data.DataColumn("EstEco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstEco);
                 this.columnNUMERO = new global::System.Data.DataColumn("NUMERO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNUMERO);
                 this.columnNUMERO1 = new global::System.Data.DataColumn("NUMERO1", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1280,18 +1284,14 @@ namespace ConsultaTratorPecas.Main {
                 base.Columns.Add(this.columnNUMERO3);
                 this.columnNUMERO4 = new global::System.Data.DataColumn("NUMERO4", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNUMERO4);
-                this.columnQTDVENDIDA = new global::System.Data.DataColumn("QTDVENDIDA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQTDVENDIDA);
-                this.columnDATA = new global::System.Data.DataColumn("DATA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDATA);
-                this.columnCODGRUPO = new global::System.Data.DataColumn("CODGRUPO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODGRUPO);
-                this.columnGRUPO = new global::System.Data.DataColumn("GRUPO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGRUPO);
-                this.columnCODFORNECEDOR = new global::System.Data.DataColumn("CODFORNECEDOR", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODFORNECEDOR);
-                this.columnFORNECEDOR = new global::System.Data.DataColumn("FORNECEDOR", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFORNECEDOR);
+                this.columnDataUltimaCompra = new global::System.Data.DataColumn("DataUltimaCompra", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataUltimaCompra);
+                this.columnFornecedor = new global::System.Data.DataColumn("Fornecedor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFornecedor);
+                this.columnCodGrupo = new global::System.Data.DataColumn("CodGrupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodGrupo);
+                this.columnDescGrupo = new global::System.Data.DataColumn("DescGrupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescGrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2149,113 +2149,145 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string NF {
+            public string codProduto {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.NFColumn]));
+                        return ((string)(this[this.tableDataTable2.codProdutoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NF\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'codProduto\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.NFColumn] = value;
+                    this[this.tableDataTable2.codProdutoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PRODUTO {
+            public string descProduto {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.PRODUTOColumn]));
+                        return ((string)(this[this.tableDataTable2.descProdutoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PRODUTO\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'descProduto\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.PRODUTOColumn] = value;
+                    this[this.tableDataTable2.descProdutoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DESCRICAO {
+            public string RefFornecedor {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.DESCRICAOColumn]));
+                        return ((string)(this[this.tableDataTable2.RefFornecedorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DESCRICAO\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'RefFornecedor\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.DESCRICAOColumn] = value;
+                    this[this.tableDataTable2.RefFornecedorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PRECOCOMPRA {
+            public string PrecoCompra {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.PRECOCOMPRAColumn]));
+                        return ((string)(this[this.tableDataTable2.PrecoCompraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PRECOCOMPRA\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PrecoCompra\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.PRECOCOMPRAColumn] = value;
+                    this[this.tableDataTable2.PrecoCompraColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PRECOVENDA {
+            public string PrecoVenda {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.PRECOVENDAColumn]));
+                        return ((string)(this[this.tableDataTable2.PrecoVendaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PRECOVENDA\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PrecoVenda\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.PRECOVENDAColumn] = value;
+                    this[this.tableDataTable2.PrecoVendaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string QTD {
+            public string qtdUltimaEnt {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.QTDColumn]));
+                        return ((string)(this[this.tableDataTable2.qtdUltimaEntColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QTD\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'qtdUltimaEnt\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.QTDColumn] = value;
+                    this[this.tableDataTable2.qtdUltimaEntColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ESTECO {
+            public string QtdVendida {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.ESTECOColumn]));
+                        return ((string)(this[this.tableDataTable2.QtdVendidaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'ESTECO\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QtdVendida\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.ESTECOColumn] = value;
+                    this[this.tableDataTable2.QtdVendidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DataUltimaVenda {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable2.DataUltimaVendaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataUltimaVenda\' na tabela \'DataTable2\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable2.DataUltimaVendaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string EstEco {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable2.EstEcoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'EstEco\' na tabela \'DataTable2\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable2.EstEcoColumn] = value;
                 }
             }
             
@@ -2341,182 +2373,174 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string QTDVENDIDA {
+            public string DataUltimaCompra {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.QTDVENDIDAColumn]));
+                        return ((string)(this[this.tableDataTable2.DataUltimaCompraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'QTDVENDIDA\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataUltimaCompra\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.QTDVENDIDAColumn] = value;
+                    this[this.tableDataTable2.DataUltimaCompraColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DATA {
+            public string Fornecedor {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.DATAColumn]));
+                        return ((string)(this[this.tableDataTable2.FornecedorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DATA\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Fornecedor\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.DATAColumn] = value;
+                    this[this.tableDataTable2.FornecedorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CODGRUPO {
+            public string CodGrupo {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.CODGRUPOColumn]));
+                        return ((string)(this[this.tableDataTable2.CodGrupoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CODGRUPO\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CodGrupo\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.CODGRUPOColumn] = value;
+                    this[this.tableDataTable2.CodGrupoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string GRUPO {
+            public string DescGrupo {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.GRUPOColumn]));
+                        return ((string)(this[this.tableDataTable2.DescGrupoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'GRUPO\' na tabela \'DataTable2\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DescGrupo\' na tabela \'DataTable2\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.GRUPOColumn] = value;
+                    this[this.tableDataTable2.DescGrupoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CODFORNECEDOR {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable2.CODFORNECEDORColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CODFORNECEDOR\' na tabela \'DataTable2\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable2.CODFORNECEDORColumn] = value;
-                }
+            public bool IscodProdutoNull() {
+                return this.IsNull(this.tableDataTable2.codProdutoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string FORNECEDOR {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable2.FORNECEDORColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'FORNECEDOR\' na tabela \'DataTable2\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable2.FORNECEDORColumn] = value;
-                }
+            public void SetcodProdutoNull() {
+                this[this.tableDataTable2.codProdutoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNFNull() {
-                return this.IsNull(this.tableDataTable2.NFColumn);
+            public bool IsdescProdutoNull() {
+                return this.IsNull(this.tableDataTable2.descProdutoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNFNull() {
-                this[this.tableDataTable2.NFColumn] = global::System.Convert.DBNull;
+            public void SetdescProdutoNull() {
+                this[this.tableDataTable2.descProdutoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPRODUTONull() {
-                return this.IsNull(this.tableDataTable2.PRODUTOColumn);
+            public bool IsRefFornecedorNull() {
+                return this.IsNull(this.tableDataTable2.RefFornecedorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPRODUTONull() {
-                this[this.tableDataTable2.PRODUTOColumn] = global::System.Convert.DBNull;
+            public void SetRefFornecedorNull() {
+                this[this.tableDataTable2.RefFornecedorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDESCRICAONull() {
-                return this.IsNull(this.tableDataTable2.DESCRICAOColumn);
+            public bool IsPrecoCompraNull() {
+                return this.IsNull(this.tableDataTable2.PrecoCompraColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDESCRICAONull() {
-                this[this.tableDataTable2.DESCRICAOColumn] = global::System.Convert.DBNull;
+            public void SetPrecoCompraNull() {
+                this[this.tableDataTable2.PrecoCompraColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPRECOCOMPRANull() {
-                return this.IsNull(this.tableDataTable2.PRECOCOMPRAColumn);
+            public bool IsPrecoVendaNull() {
+                return this.IsNull(this.tableDataTable2.PrecoVendaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPRECOCOMPRANull() {
-                this[this.tableDataTable2.PRECOCOMPRAColumn] = global::System.Convert.DBNull;
+            public void SetPrecoVendaNull() {
+                this[this.tableDataTable2.PrecoVendaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPRECOVENDANull() {
-                return this.IsNull(this.tableDataTable2.PRECOVENDAColumn);
+            public bool IsqtdUltimaEntNull() {
+                return this.IsNull(this.tableDataTable2.qtdUltimaEntColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPRECOVENDANull() {
-                this[this.tableDataTable2.PRECOVENDAColumn] = global::System.Convert.DBNull;
+            public void SetqtdUltimaEntNull() {
+                this[this.tableDataTable2.qtdUltimaEntColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsQTDNull() {
-                return this.IsNull(this.tableDataTable2.QTDColumn);
+            public bool IsQtdVendidaNull() {
+                return this.IsNull(this.tableDataTable2.QtdVendidaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetQTDNull() {
-                this[this.tableDataTable2.QTDColumn] = global::System.Convert.DBNull;
+            public void SetQtdVendidaNull() {
+                this[this.tableDataTable2.QtdVendidaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsESTECONull() {
-                return this.IsNull(this.tableDataTable2.ESTECOColumn);
+            public bool IsDataUltimaVendaNull() {
+                return this.IsNull(this.tableDataTable2.DataUltimaVendaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetESTECONull() {
-                this[this.tableDataTable2.ESTECOColumn] = global::System.Convert.DBNull;
+            public void SetDataUltimaVendaNull() {
+                this[this.tableDataTable2.DataUltimaVendaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEstEcoNull() {
+                return this.IsNull(this.tableDataTable2.EstEcoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEstEcoNull() {
+                this[this.tableDataTable2.EstEcoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2581,74 +2605,50 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsQTDVENDIDANull() {
-                return this.IsNull(this.tableDataTable2.QTDVENDIDAColumn);
+            public bool IsDataUltimaCompraNull() {
+                return this.IsNull(this.tableDataTable2.DataUltimaCompraColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetQTDVENDIDANull() {
-                this[this.tableDataTable2.QTDVENDIDAColumn] = global::System.Convert.DBNull;
+            public void SetDataUltimaCompraNull() {
+                this[this.tableDataTable2.DataUltimaCompraColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDATANull() {
-                return this.IsNull(this.tableDataTable2.DATAColumn);
+            public bool IsFornecedorNull() {
+                return this.IsNull(this.tableDataTable2.FornecedorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDATANull() {
-                this[this.tableDataTable2.DATAColumn] = global::System.Convert.DBNull;
+            public void SetFornecedorNull() {
+                this[this.tableDataTable2.FornecedorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCODGRUPONull() {
-                return this.IsNull(this.tableDataTable2.CODGRUPOColumn);
+            public bool IsCodGrupoNull() {
+                return this.IsNull(this.tableDataTable2.CodGrupoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCODGRUPONull() {
-                this[this.tableDataTable2.CODGRUPOColumn] = global::System.Convert.DBNull;
+            public void SetCodGrupoNull() {
+                this[this.tableDataTable2.CodGrupoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGRUPONull() {
-                return this.IsNull(this.tableDataTable2.GRUPOColumn);
+            public bool IsDescGrupoNull() {
+                return this.IsNull(this.tableDataTable2.DescGrupoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGRUPONull() {
-                this[this.tableDataTable2.GRUPOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCODFORNECEDORNull() {
-                return this.IsNull(this.tableDataTable2.CODFORNECEDORColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCODFORNECEDORNull() {
-                this[this.tableDataTable2.CODFORNECEDORColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFORNECEDORNull() {
-                return this.IsNull(this.tableDataTable2.FORNECEDORColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFORNECEDORNull() {
-                this[this.tableDataTable2.FORNECEDORColumn] = global::System.Convert.DBNull;
+            public void SetDescGrupoNull() {
+                this[this.tableDataTable2.DescGrupoColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -38,17 +38,17 @@ namespace ConsultaTratorPecas.Main
                 progress.Visible = true;
                 progress.Maximum = dgv.RowCount;
 
-                     for (i = 0; i <= dgvPdtCompraNFE.RowCount - 1; i++)
-                     {
-                         progress.Increment(1);
+                for (i = 0; i <= dgvPdtCompra.RowCount - 1; i++)
+                {
+                    progress.Increment(1);
 
-                         for (j = 0; j <= dgvPdtCompraNFE.ColumnCount - 1; j++)
-                         {
-                             DataGridViewCell cell = dgvPdtCompraNFE[j, i];
-                             WorkSheet.Cells[i + 1, j + 1] = cell.Value;
-                         }
-                     }
-                 
+                    for (j = 0; j <= dgvPdtCompra.ColumnCount - 1; j++)
+                    {
+                        DataGridViewCell cell = dgvPdtCompra[j, i];
+                        WorkSheet.Cells[i + 1, j + 1] = cell.Value;
+                    }
+                }
+
 
                 salvar.Title = "Salvar para Excel";
                 salvar.Filter = "Arquivo do Excel *.xls | *.xls";
@@ -94,58 +94,8 @@ namespace ConsultaTratorPecas.Main
             }
         }
 
-        public void AtualizaDgvPdtCompraNFE()
-        {
-            try
-            {
-                data.AtualizaDgvPdtCompraNFE(dgvPdtCompraNFE,
-                                          string.IsNullOrWhiteSpace(tbxGrupo.Text) ? "0" : tbxGrupo.Text,
-                                          string.IsNullOrWhiteSpace(tbxFornecedor.Text) ? "0" : tbxFornecedor.Text,
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
-                try
-                {
-                    if (dgvPdtCompraNFE.RowCount > 0)
-                    {
-                        dgvPdtCompraNFE.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells["estEcoDataGridViewTextBoxColumn"].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
-                    }
-                }
-                catch (Exception e)
-                {
-
-                    MessageBox.Show(e.Message, "Erro ao buscar estoque do Eco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-                if (dgvPdtCompraNFE.RowCount < 1)
-                {
-                    MessageBox.Show("Nenhum registro de compra com NFE encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                lblComprasNFE.Text = "Compras com nfe: " + dgvPdtCompraNFE.RowCount;
-
-            }
-            catch (Exception e)
-            {
-
-                throw e;
-            }
-
-
-
-        }
-
         public void AtualizaDgvPdtCompra()
         {
-            string grupo()
-            {
-                if (string.IsNullOrWhiteSpace(tbxGrupo.Text))
-                {
-                    return null;
-                }
-                else
-                {
-                    return " and grp.codigo = " + tbxGrupo.Text ;
-                }
-            }
             string fornecedor()
             {
                 if (string.IsNullOrWhiteSpace(tbxFornecedor.Text))
@@ -154,22 +104,32 @@ namespace ConsultaTratorPecas.Main
                 }
                 else
                 {
-                    return " and fcd.codigo = " + tbxFornecedor.Text;
+                    return " and pdt.fornecedor = " + tbxFornecedor.Text;
                 }
             }
-
+            string grupo()
+            {
+                if (string.IsNullOrWhiteSpace(tbxGrupo.Text))
+                {
+                    return null;
+                }
+                else
+                {
+                    return " and pdt.grupo = " + tbxGrupo.Text;
+                }
+            }
             try
             {
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
                                           grupo(),
                                           fornecedor(),
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)
                     {
-                        dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells[7].Value = data.EstoqueEco(p.Cells[1].Value.ToString()));
+                        dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells["estEcoDataGridViewTextBoxColumn"].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
                     }
                 }
                 catch (Exception e)
@@ -178,12 +138,13 @@ namespace ConsultaTratorPecas.Main
                     MessageBox.Show(e.Message, "Erro ao buscar estoque do Eco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
+
+
                 if (dgvPdtCompra.RowCount < 1)
                 {
-                    MessageBox.Show("Nenhum registro de compra encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Nenhum registro encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
-                lblCompras.Text = "Compras: " + dgvPdtCompra.RowCount;
+                lblCompras.Text = "Compras encontradas: " + dgvPdtCompra.RowCount;
 
             }
             catch (Exception e)
@@ -276,8 +237,8 @@ namespace ConsultaTratorPecas.Main
 
         private void BtnPesquisarEst_Click(object sender, EventArgs e)
         {
-            AtualizaDgvPdtCompraNFE();
             AtualizaDgvPdtCompra();
+
         }
 
         private void DgvPedidos_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -334,7 +295,7 @@ namespace ConsultaTratorPecas.Main
         {
             try
             {
-                await ExportarExcel(progressBar, dgvPdtCompraNFE);
+                await ExportarExcel(progressBar, dgvPdtCompra);
             }
             catch (Exception er)
             {

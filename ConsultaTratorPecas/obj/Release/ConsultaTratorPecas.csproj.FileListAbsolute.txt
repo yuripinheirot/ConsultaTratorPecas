@@ -20,6 +20,7 @@ C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Relea
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.exe
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.pdb
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csprojAssemblyReference.cache
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Cliente.frmMainCliente.resources
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmGrupo.resources
 C:\Users\yuri\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmMainProduto.resources
