@@ -115,16 +115,17 @@ namespace ConsultaTratorPecas.Main
                 }
                 else
                 {
-                    return " and pdt.grupo = " + tbxGrupo.Text;
+                    return " and pdt.grupo in ( " + tbxGrupo.Text.Substring(0,tbxGrupo.TextLength -1) +")"; 
                 }
             }
+
             try
             {
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
                                           grupo(),
                                           fornecedor(),
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)
@@ -144,6 +145,7 @@ namespace ConsultaTratorPecas.Main
                 {
                     MessageBox.Show("Nenhum registro encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+
                 lblCompras.Text = "Compras encontradas: " + dgvPdtCompra.RowCount;
 
             }

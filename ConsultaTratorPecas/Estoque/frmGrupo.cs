@@ -44,8 +44,31 @@ namespace ConsultaTratorPecas.Estoque
 
         private void BtnInserir_Click(object sender, EventArgs e)
         {
-            main.tbxGrupo.Text = dgvGrupo.CurrentRow.Cells[0].Value.ToString();
+            main.tbxGrupo.Text += dgvGrupo.CurrentRow.Cells[0].Value.ToString() + ",";
             Close();
+        }
+
+        private void tbxPalavraChave_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (dgvGrupo.Focused == false)
+                {
+                    if (e.KeyCode == Keys.Up)
+                    {
+                        int i = dgvGrupo.CurrentRow.Index - 1;
+                        dgvGrupo.CurrentCell = dgvGrupo.Rows[i].Cells[0];
+                    }
+                    else if (e.KeyCode == Keys.Down)
+                    {
+                        int i = dgvGrupo.CurrentRow.Index + 1;
+                        dgvGrupo.CurrentCell = dgvGrupo.Rows[i].Cells[0];
+                    }
+                }
+            }
+            catch
+            {
+            }
         }
     }
 }
