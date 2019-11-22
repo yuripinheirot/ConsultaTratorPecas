@@ -115,7 +115,7 @@ namespace ConsultaTratorPecas.Main
                 }
                 else
                 {
-                    return " and pdt.grupo in ( " + tbxGrupo.Text.Substring(0,tbxGrupo.TextLength -1) +")"; 
+                    return " and pdt.grupo in ( " + tbxGrupo.Text.Substring(0, tbxGrupo.TextLength - 1) + ")";
                 }
             }
 
@@ -124,18 +124,18 @@ namespace ConsultaTratorPecas.Main
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
                                           grupo(),
                                           fornecedor(),
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)
                     {
-                        dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells["estEcoDataGridViewTextBoxColumn"].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
+                        //dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells["estEcoDataGridViewTextBoxColumn"].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
+                        data.EstoqueEco2(dgvPdtCompra);
                     }
                 }
                 catch (Exception e)
                 {
-
                     MessageBox.Show(e.Message, "Erro ao buscar estoque do Eco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 

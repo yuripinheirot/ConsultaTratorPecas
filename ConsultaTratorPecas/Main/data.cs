@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -137,6 +138,48 @@ namespace ConsultaTratorPecas.Main
                 string cod = cmd.ExecuteScalar().ToString();
                 conexao.Close();
                 return cod;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public static void EstoqueEco2(DataGridView dgv)
+        {
+            try
+            {
+                string codigos = "";
+                dgv.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => codigos += p.Cells[0].Value.ToString() + ",");
+                codigos = codigos.Substring(0, codigos.Length - 1);
+                List<KeyValuePair<string, string>> pdtEstoque = new List<KeyValuePair<string, string>>();
+                codigos.Replace(" ", "");
+
+                FbConnection conexao = new FbConnection(Properties.Settings.Default.ConexaoFB);
+                conexao.Open();
+                string query = "select cast(a.produto as int) as produto,(A.ESTDISPONIVEL + A.ESTRESERVADO + A.ESTCONDICIONAL) as ESTECO from TESTESTOQUE A where cast(A.PRODUTO as int) in ("+codigos+") group by 1,2;";
+                FbCommand cmd = new FbCommand(query, conexao);
+                FbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    pdtEstoque.Add(new KeyValuePair<string, string>(reader["produto"].ToString(), reader["esteco"].ToString()));
+                }
+                conexao.Close();
+
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    foreach (KeyValuePair<string,string> key in pdtEstoque)
+                    {
+                        if (row.Cells[0].Value.ToString() == key.Key)
+                        {
+                            row.Cells[8].Value = key.Value;
+                        }
+                    }
+                }
             }
             catch (Exception erro)
             {
