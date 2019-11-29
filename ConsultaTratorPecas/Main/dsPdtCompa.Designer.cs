@@ -958,6 +958,8 @@ namespace ConsultaTratorPecas.Main {
             
             private global::System.Data.DataColumn columnDescGrupo;
             
+            private global::System.Data.DataColumn columnFornecedorDesc;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DataTable2DataTable() {
@@ -1137,6 +1139,14 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FornecedorDescColumn {
+                get {
+                    return this.columnFornecedorDesc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1190,7 +1200,8 @@ namespace ConsultaTratorPecas.Main {
                         string DataUltimaCompra, 
                         string Fornecedor, 
                         string CodGrupo, 
-                        string DescGrupo) {
+                        string DescGrupo, 
+                        string FornecedorDesc) {
                 DataTable2Row rowDataTable2Row = ((DataTable2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codProduto,
@@ -1210,7 +1221,8 @@ namespace ConsultaTratorPecas.Main {
                         DataUltimaCompra,
                         Fornecedor,
                         CodGrupo,
-                        DescGrupo};
+                        DescGrupo,
+                        FornecedorDesc};
                 rowDataTable2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable2Row);
                 return rowDataTable2Row;
@@ -1251,6 +1263,7 @@ namespace ConsultaTratorPecas.Main {
                 this.columnFornecedor = base.Columns["Fornecedor"];
                 this.columnCodGrupo = base.Columns["CodGrupo"];
                 this.columnDescGrupo = base.Columns["DescGrupo"];
+                this.columnFornecedorDesc = base.Columns["FornecedorDesc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1292,6 +1305,8 @@ namespace ConsultaTratorPecas.Main {
                 base.Columns.Add(this.columnCodGrupo);
                 this.columnDescGrupo = new global::System.Data.DataColumn("DescGrupo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescGrupo);
+                this.columnFornecedorDesc = new global::System.Data.DataColumn("FornecedorDesc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFornecedorDesc);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2437,6 +2452,22 @@ namespace ConsultaTratorPecas.Main {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FornecedorDesc {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable2.FornecedorDescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'FornecedorDesc\' na tabela \'DataTable2\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable2.FornecedorDescColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IscodProdutoNull() {
                 return this.IsNull(this.tableDataTable2.codProdutoColumn);
             }
@@ -2649,6 +2680,18 @@ namespace ConsultaTratorPecas.Main {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDescGrupoNull() {
                 this[this.tableDataTable2.DescGrupoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFornecedorDescNull() {
+                return this.IsNull(this.tableDataTable2.FornecedorDescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFornecedorDescNull() {
+                this[this.tableDataTable2.FornecedorDescColumn] = global::System.Convert.DBNull;
             }
         }
         

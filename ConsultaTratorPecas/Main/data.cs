@@ -273,8 +273,9 @@ namespace ConsultaTratorPecas.Main
                     "inner join NFItemsEntrada h on (g.NumeroNF = h.NumeroNF                                                                         " +
                     "                                      and g.Modelo = h.Modelo                                                                   " +
                     "                                      and g.Serie = h.Serie)                                                                    " +
+                    "where h.Produto = pdt.Codigo                                                                                                    " +
                     "order by g.DataLanc desc) as Fornecedor,                                                                                        " +
-                    "fcd.Descricao as Fornecedor,                                                                                                    " +
+                    "fcd.Descricao as FornecedorDesc,                                                                                                " +
                     "grp.Codigo as CodGrupo,                                                                                                         " +
                     "grp.Descricao as DescGrupo                                                                                                      " +
                     "from produtos pdt                                                                                                               " +

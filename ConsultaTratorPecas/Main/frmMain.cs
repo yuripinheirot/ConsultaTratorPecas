@@ -124,8 +124,10 @@ namespace ConsultaTratorPecas.Main
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
                                           grupo(),
                                           fornecedor(),
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+                                          //Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
+                                          //Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)
