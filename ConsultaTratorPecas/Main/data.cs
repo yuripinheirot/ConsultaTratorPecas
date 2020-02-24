@@ -161,7 +161,7 @@ namespace ConsultaTratorPecas.Main
 
                 FbConnection conexao = new FbConnection(Properties.Settings.Default.ConexaoFB);
                 conexao.Open();
-                string query = "select cast(a.produto as int) as produto,(A.ESTDISPONIVEL + A.ESTRESERVADO + A.ESTCONDICIONAL) as ESTECO from TESTESTOQUE A where cast(A.PRODUTO as int) in ("+codigos+") group by 1,2;";
+                string query = "select cast(a.produto as int) as produto,(A.ESTDISPONIVEL + A.ESTRESERVADO + A.ESTCONDICIONAL) as ESTECO from TESTESTOQUE A where cast(A.PRODUTO as int) in (" + codigos + ") group by 1,2;";
                 FbCommand cmd = new FbCommand(query, conexao);
                 FbDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -172,11 +172,11 @@ namespace ConsultaTratorPecas.Main
 
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
-                    foreach (KeyValuePair<string,string> key in pdtEstoque)
+                    foreach (KeyValuePair<string, string> key in pdtEstoque)
                     {
                         if (row.Cells[0].Value.ToString() == key.Key)
                         {
-                            row.Cells[8].Value = key.Value;
+                            row.Cells["estEcoDataGridViewTextBoxColumn"].Value = key.Value;
                         }
                     }
                 }
@@ -238,77 +238,75 @@ namespace ConsultaTratorPecas.Main
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
-                    "select                                                                                                                          " +
-                    "pdt.Codigo as codProduto,                                                                                                       " +
-                    "pdt.Descricao as descProduto,                                                                                                   " +
-                    "pdt.PrecoCompra,                                                                                                                " +
-                    "pdt.PrecoVenda,                                                                                                                 " +
-                    "(select top 1 x.Qtd from NFItemsEntrada x where x.Produto = pdt.codigo order by x.cod desc) as qtdUltimaEnt,                    " +
-                    "sum(ivd.Qtd) as qtdVendida,                                                                                                     " +
-                    "(SELECT top 1                                                                                                                   " +
-                    " cast(a.data as date)                                                                                                           " +
-                    " from vendas a                                                                                                                  " +
-                    " inner join ItemsVenda b on (a.codigo = b.codigo)                                                                               " +
-                    " where b.produto = pdt.codigo                                                                                                   " +
-                    " order by a.data desc) as DataUltimaVenda,                                                                                      " +
-                    "'' as estEco,                                                                                                                   " +
-                    "pdt.Numero,                                                                                                                     " +
-                    "pdt.Numero1,                                                                                                                    " +
-                    "pdt.Numero2,                                                                                                                    " +
-                    "pdt.Numero3,                                                                                                                    " +
-                    "pdt.Numero4,                                                                                                                    " +
-                    "pdt.RefFornecedor,                                                                                                              " +
-                    "(select top 1                                                                                                                   " +
-                    " cast(y.DataLanc as date)                                                                                                       " +
-                    " from NFItemsEntrada x                                                                                                          " +
-                    " inner join NotasFiscaisEntrada y on (x.NumeroNF = y.NumeroNF                                                                   " +
-                    "                                      and x.Modelo = y.Modelo                                                                   " +
-                    "                                      and x.Serie = y.Serie)                                                                    " +
-                    "where                                                                                                                           " +
-                    "x.Produto = pdt.codigo                                                                                                          " +
-                    "order by y.DataLanc desc) as DataUltimaCompra,                                                                                  " +
-                    "(select top 1                                                                                                                   " +
-                    "g.cliente                                                                                                                       " +
-                    "from NotasFiscaisEntrada g                                                                                                      " +
-                    "inner join NFItemsEntrada h on (g.NumeroNF = h.NumeroNF                                                                         " +
-                    "                                      and g.Modelo = h.Modelo                                                                   " +
-                    "                                      and g.Serie = h.Serie)                                                                    " +
-                    "where h.Produto = pdt.Codigo                                                                                                    " +
-                    "order by g.DataLanc desc) as Fornecedor,                                                                                        " +
-                    "fcd.Descricao as FornecedorDesc,                                                                                                " +
-                    "grp.Codigo as CodGrupo,                                                                                                         " +
-                    "grp.Descricao as DescGrupo                                                                                                      " +
-                    "from produtos pdt                                                                                                               " +
-                    "left outer join NFItemsEntrada nie on (pdt.Codigo = nie.Produto)                                                                " +
-                    "left outer join NotasFiscaisEntrada nfe on (nie.NumeroNF = nfe.NumeroNF and nie.Modelo = nfe.Modelo and nie.Serie = nfe.Serie)  " +
-                    "left outer join ItemsVenda ivd on (pdt.codigo = ivd.produto)                                                                    " +
-                    "left outer join Vendas vda on (ivd.Codigo = vda.codigo)                                                                         " +
-                    "left outer join Fornecedor fcd on (pdt.Fornecedor = fcd.Codigo)                                                                 " +
-                    "left outer join GrupoProdutos grp on (pdt.Grupo = grp.codigo)                                                                   " +
-                    "where                                                                                                                           " +
-                    "nfe.DataLanc between @dti and @dtf                                                                                              " +
-                    fornecedor + grupo +
-                    "and (vda.CANCELADA=0 OR vda.Cancelada IS NULL)                                                                                  " +
-                    "group by                                                                                                                        " +
-                    "pdt.Codigo,                                                                                                                     " +
-                    "pdt.Descricao,                                                                                                                  " +
-                    "pdt.PrecoCompra,                                                                                                                " +
-                    "pdt.PrecoVenda,                                                                                                                 " +
-                    "pdt.DataUltimaVenda,                                                                                                            " +
-                    "pdt.Numero,                                                                                                                     " +
-                    "pdt.Numero1,                                                                                                                    " +
-                    "pdt.Numero2,                                                                                                                    " +
-                    "pdt.Numero3,                                                                                                                    " +
-                    "pdt.Numero4,                                                                                                                    " +
-                    "pdt.RefFornecedor,                                                                                                              " +
-                    "pdt.DataUltimaCompra,                                                                                                           " +
-                    "pdt.Fornecedor,                                                                                                                 " +
-                    "fcd.Descricao,                                                                                                                  " +
-                    "grp.Codigo,                                                                                                                     " +
-                    "grp.Descricao                                                                                                                   " +
-                    "order by                                                                                                                        " +
-                    "pdt.codigo asc                                                                                                                  ";
-
+                    "select																		 " +
+                    "																			 " +
+                    "ivd.Produto as codProduto,                                                  " +
+                    "pdt.Descricao as descProduto,                                               " +
+                    "pdt.Numero,                                                                 " +
+                    "pdt.Numero1,                                                                " +
+                    "pdt.Numero2,                                                                " +
+                    "pdt.Numero3,                                                                " +
+                    "pdt.Numero4,                                                                " +
+                    "pdt.RefFornecedor,                                                          " +
+                    "'' as estoqueEco,                                                           " +
+                    "pdt.Fornecedor,                                                             " +
+                    "sum(ivd.Qtd) as qtdVendida,                                                 " +
+                    "pdt.PrecoCompra,                                                            " +
+                    "pdt.PrecoVenda,                                                             " +
+                    "(select top 1                                                               " +
+                    "cast(nfe.DataLanc as date) as DataLanc                                      " +
+                    "from NFItemsEntrada nie                                                     " +
+                    "left outer join NotasFiscaisEntrada nfe on (nie.NumeroNF = nfe.NumeroNF and " +
+                    "                                            nie.Modelo = nfe.Modelo and     " +
+                    "											nie.Serie = nfe.Serie)           " +
+                    "where nfe.Cliente = pdt.Fornecedor                                          " +
+                    "and nie.Produto = ivd.Produto	                                             " +
+                    "order by nfe.DataLanc desc	) as DataUltimaCompra,                           " +
+                    "(select top 1                                                               " +
+                    "nie.Qtd                                                                     " +
+                    "from NFItemsEntrada nie                                                     " +
+                    "left outer join NotasFiscaisEntrada nfe on (nie.NumeroNF = nfe.NumeroNF and " +
+                    "                                            nie.Modelo = nfe.Modelo and     " +
+                    "											nie.Serie = nfe.Serie)           " +
+                    "where nfe.Cliente = pdt.Fornecedor                                          " +
+                    "and nie.Produto = ivd.Produto	                                             " +
+                    "order by nfe.DataLanc desc	) as qtdUltimaEnt,                               " +
+                    "(select top 1                                                               " +
+                    "cast(a.Data as date)                                                        " +
+                    "from Vendas a                                                               " +
+                    "inner join ItemsVenda b on (a.Codigo = b.Codigo)                            " +
+                    "where b.Produto = ivd.Produto	                                             " +
+                    "order by a.Data desc) as DataUltimaVenda,                                   " +
+                    "grp.Codigo as codGrupo,                                                     " + 
+                    "grp.Descricao as descGrupo                                                  " +
+                    "																			 " +
+                    "																			 " +
+                    "from Vendas vda                                                             " +
+                    "left outer join ItemsVenda ivd on (vda.Codigo = ivd.Codigo)                 " +
+                    "left outer join produtos pdt on (ivd.Produto = pdt.Codigo)                  " +
+                    "left outer join NFItemsEntrada nie on (ivd.Codigo = nie.Produto)            " +
+                    "left outer join NotasFiscaisEntrada nfe on (nie.NumeroNF = nfe.NumeroNF and " +
+                    "                                            nie.Modelo = nfe.Modelo and     " +
+                    "											nie.Serie = nfe.Serie)           " +
+                    "left outer join Fornecedor fcd on (nfe.Cliente = fcd.Codigo)                " +
+                    "left outer join GrupoProdutos grp on (pdt.Grupo = grp.codigo)               " +
+                    "where                                                                       " +
+                    "vda.Data between @dti and @dtf                                              " +
+                     fornecedor + grupo +
+                    "group by                                                                    " +
+                    "ivd.Produto,                                                                " +
+                    "pdt.Descricao,                                                              " +
+                    "pdt.Numero,                                                                 " +
+                    "pdt.Numero1,                                                                " +
+                    "pdt.Numero2,                                                                " +
+                    "pdt.Numero3,                                                                " +
+                    "pdt.Numero4,                                                                " +
+                    "pdt.RefFornecedor,                                                          " +
+                    "pdt.Fornecedor,                                                             " +
+                    "pdt.PrecoCompra,                                                            " +
+                    "pdt.PrecoVenda,                                                             " +
+                    "grp.Codigo,                                                                 "+
+                    "grp.Descricao                                                               ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 //cmd.Parameters.AddWithValue("@grupo", grupo);
                 //cmd.Parameters.AddWithValue("@fornecedor", fornecedor);

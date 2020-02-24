@@ -3,12 +3,15 @@
   <Profiles />
   <Settings>
     <Setting Name="Conexao" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data source=yuri-note;Initial Catalog=BD_TRATORPECAS;UID=sa;pwd=masterkey</Value>
+      <Value Profile="(Default)">Data source=YURI\SQLSERVER14;
+Initial Catalog=BD_TRATORPECAS;
+UID=sa;
+pwd=eco@4067</Value>
     </Setting>
     <Setting Name="ConexaoFB" Type="System.String" Scope="User">
       <Value Profile="(Default)">User=SYSDBA;   
  Password=masterkey;   
- Database=c:\ecosis\dados\tratorpecas.eco;   
+ Database=d:\dados\tratorpecas\ecodados.eco;   
  DataSource=localhost;   
  Port=3050;   
  Dialect=3;   

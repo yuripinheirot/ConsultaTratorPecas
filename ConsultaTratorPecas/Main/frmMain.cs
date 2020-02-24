@@ -85,7 +85,9 @@ namespace ConsultaTratorPecas.Main
                 }
             }
 
-            data.AtualizaDgvPedido(dgvPedidos, cliente(), Convert.ToDateTime(tbxDataIni.Text).ToString("yyyy-MM-dd"), Convert.ToDateTime(tbxDataFin.Text).ToString("yyyy-MM-dd"));
+            data.AtualizaDgvPedido(dgvPedidos, cliente(),
+                Convert.ToDateTime(tbxDataIni.Text).ToString("yyyy-MM-dd"),
+                                          Convert.ToDateTime(tbxDataFin.Text).ToString("yyyy-MM-dd"));
             lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
             lblValorTotal.Text = "Valor total: " + dgvPedidos.Rows.Cast<DataGridViewRow>().Sum(p => Convert.ToDecimal(p.Cells[4].Value)).ToString("N2");
             if (dgvPedidos.RowCount == 0)
@@ -124,10 +126,10 @@ namespace ConsultaTratorPecas.Main
                 data.AtualizaDgvPdtCompra(dgvPdtCompra,
                                           grupo(),
                                           fornecedor(),
-                                          //Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
-                                          //Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
+                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
+                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
+                                          //Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
+                                          //Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
                 try
                 {
                     if (dgvPdtCompra.RowCount > 0)

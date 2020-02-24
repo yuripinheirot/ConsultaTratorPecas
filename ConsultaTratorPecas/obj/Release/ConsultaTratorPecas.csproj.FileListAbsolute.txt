@@ -51,3 +51,20 @@ C:\Users\Yuri Pinheiro\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\
 C:\Users\Yuri Pinheiro\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csproj.CopyComplete
 C:\Users\Yuri Pinheiro\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.exe
 C:\Users\Yuri Pinheiro\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.pdb
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.exe.config
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.exe
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\ConsultaTratorPecas.pdb
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\bin\Release\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Cliente.frmMainCliente.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmGrupo.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Estoque.frmMainProduto.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Fornecedor.frmMainFornecedor.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Main.frmMain.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.PedidoProduto.frmPedidoProduto.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Properties.Resources.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.Util.Form1.resources
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.csproj.CopyComplete
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.exe
+C:\Users\Administrator\Documents\Github\ConsultaTratorPecas\ConsultaTratorPecas\obj\Release\ConsultaTratorPecas.pdb

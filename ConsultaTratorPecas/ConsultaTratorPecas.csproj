@@ -33,7 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ConsultaTratorPecas.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=7.1.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
@@ -71,6 +75,9 @@
       <DependentUpon>frmMainCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Estoque\dataProduto.cs" />
+    <Compile Include="Estoque\dsProduto.cs">
+      <DependentUpon>dsProduto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Estoque\dsProduto.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
