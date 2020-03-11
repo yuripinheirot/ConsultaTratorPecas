@@ -198,22 +198,110 @@ namespace ConsultaTratorPecas.Main
                 conexao = new SqlConnection(server);
                 conexao.Open();
                 string query =
-                    "select                                                                       " +
-                    "vnd.codigo,                                                                  " +
-                    "vnd.data as DataCadastro,                                                    " +
-                    "vdd.Descricao as vendedor,                                                   " +
-                    "vnd.TotalVenda,                                                              " +
-                    "CONCAT(cli.Codigo,'-',cli.Descricao) as Cliente,                             " +
-                    "vnd.Usuario                                                                  " +
-                    "from vendas vnd                                                              " +
-                    "inner join planos pla on (vnd.CondicoesPagamento = pla.Codigo)               " +
-                    "inner join clientes cli on (vnd.Cliente = cli.Codigo)                        " +
-                    "inner join Vendedor vdd on (vnd.Vendedor = vdd.Codigo)                       " +
-                    "where cast(vnd.data as date) between @dti and @dtf                           " + idCliente +
-                    "order by vnd.data,cli.Descricao desc                                         ";
+                    "select                                                               " +
+                    "vnd.codigo,                                                          " +
+                    "vnd.data as DataCadastro,                                            " +
+                    "vdd.Descricao as vendedor,                                           " +
+                    "vnd.TotalVenda,                                                      " +
+                    "nfe.NumeroNF,                                                        " +
+                    "nfe.NFeNumero,                                                       " +
+                    "CONCAT(cli.Codigo,'-',cli.Descricao) as Cliente,                     " +
+                    "vnd.Usuario                                                          " +
+                    "from vendas vnd                                                      " +
+                    "left outer join planos pla on (vnd.CondicoesPagamento = pla.Codigo)  " +
+                    "left outer join clientes cli on (vnd.Cliente = cli.Codigo)           " +
+                    "left outer join Vendedor vdd on (vnd.Vendedor = vdd.Codigo)          " +
+                    "left outer join NotasFiscaisPropria  nfe on (vnd.Codigo = nfe.Venda )" +
+                    "where cast(vnd.data as date) between @dti and @dtf                   " + idCliente +
+                    "order by vnd.data,cli.Descricao desc                                 ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 cmd.Parameters.AddWithValue("@dti", dti);
                 cmd.Parameters.AddWithValue("@dtf", dtf);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(table);
+                dgv.DataSource = table;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
+        public static void AtualizaDgvOrcamento(DataGridView dgv, string idCliente, string dti, string dtf)
+        {
+            try
+            {
+                conexao = new SqlConnection(server);
+                conexao.Open();
+                string query =
+                     "select distinct                                                     "+
+                     "                                                                    "+
+                     "orc.Codigo,                                                         "+
+                     "CONCAT(clt.Codigo,'-',clt.Descricao) as cliente,                    "+
+                     "orc.Data,                                                           "+
+                     "orc.TotalVenda,                                                     "+
+                     "orc.Descontos,                                                      "+
+                     "orc.comprador,                                                      "+
+                     "case when orc.Fechada = 0 then 'NÃO' else 'SIM' end as fechada,     "+
+                     "orc.Obs                                                             "+
+                     "                                                                    "+
+                     "from Orcamento orc                                                  "+
+                     "inner join ItemsOrc ior on (orc.Codigo = ior.Codigo)                "+
+                     "inner join Produtos pdt on (ior.Produto = pdt.Codigo)               "+
+                     "inner join Clientes clt on (clt.Codigo = orc.Cliente)               "+
+                    "where                                           " +
+                   $"orc.Data between '{dti}' and '{dtf}'            " +
+                    idCliente +                                      
+                    "order by orc.Codigo desc                        ";
+                SqlCommand cmd = new SqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@dti", dti);
+                cmd.Parameters.AddWithValue("@dtf", dtf);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(table);
+                dgv.DataSource = table;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
+        public static void AtualizaDgvPdtOrcamento(DataGridView dgv, string id)
+        {
+            try
+            {
+                conexao = new SqlConnection(server);
+                conexao.Open();
+                string query =
+                    "select                                                " +
+                    "ior.Produto,                                          " +
+                    "pdt.Descricao,                                        " +
+                    "ior.PrecoVenda,                                       " +
+                    "ior.Desconto$,                                        " +
+                    "ior.Qtd,                                              " +
+                    "ior.ObsItem,                                          " +
+                    "ior.PrecoVenda *ior.Qtd as total                      " +
+                    "from ItemsOrc ior                                     " +
+                    "inner join Orcamento orc on (ior.Codigo = orc.Codigo) " +
+                    "inner join produtos pdt on (ior.Produto = pdt.Codigo) " +
+                    "where                                                 " +
+                    "ior.codigo = @id;                                     ";
+                SqlCommand cmd = new SqlCommand(query, conexao);
+                cmd.Parameters.AddWithValue("@id", id);
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 DataTable table = new DataTable();
                 adapter.SelectCommand = cmd;
@@ -373,7 +461,6 @@ namespace ConsultaTratorPecas.Main
             }
 
         }
-
 
     }
 }

@@ -61,20 +61,20 @@ namespace ConsultaTratorPecas.PedidoProduto
                 conexao.Open();
                 modelPedidoProduto model = new modelPedidoProduto();
                 string query =
-                    "select														    " +
-                    "cli.Descricao as Cliente,									    " +
-                    "pla.Descricao as CondPagamento,							    " +
-                    "vda.Data as DataCadastro,									    " +
-                    "vda.DataConfirmacaoPreVenda as DataRegistro,				    " +
-                    "vda.Descontos,												    " +
-                    "(vda.TotalVenda + vda.descontos) as TotalBruto								    " +
-                    "															    " +
-                    "from vendas vda 											    " +
-                    "inner join clientes cli on (vda.Cliente = cli.Codigo)		    " +
-                    "inner join Planos pla on (vda.CondicoesPagamento = pla.Codigo) " +
-                    "where														    " +
-                    "															    " +
-                    "vda.Codigo = @codigo                                           ";
+                    "select														            " +
+                    "cli.Descricao as Cliente,									            " +
+                    "pla.Descricao as CondPagamento,							            " +
+                    "IIF(vda.Data is null,'',vda.Data) as DataCadastro,						" +
+                    "IIF(vda.DataConfirmacaoPreVenda is null,'',vda.Data) as DataRegistro,	" +
+                    "vda.Descontos,												            " +
+                    "(vda.TotalVenda + vda.descontos) as TotalBruto					        " +
+                    "															            " +
+                    "from vendas vda 											            " +
+                    "inner join clientes cli on (vda.Cliente = cli.Codigo)		            " +
+                    "inner join Planos pla on (vda.CondicoesPagamento = pla.Codigo)         " +
+                    "where														            " +
+                    "															            " +
+                    "vda.Codigo = @codigo                                                   ";
                 SqlCommand cmd = new SqlCommand(query, conexao);
                 cmd.Parameters.AddWithValue("@codigo", idPedido);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -82,8 +82,8 @@ namespace ConsultaTratorPecas.PedidoProduto
                 {
                     model.cliente = reader["Cliente"].ToString();
                     model.CondPagamento = reader["CondPagamento"].ToString();
-                    model.DataCadastro = Convert.ToDateTime(reader["DataCadastro"].ToString()).ToString("dd/MM/yyyy") ;
-                    model.DataRegistro = Convert.ToDateTime(reader["DataRegistro"].ToString()).ToString("dd/MM/yyyy");
+                    model.DataCadastro = Convert.ToDateTime(reader["DataCadastro"]).ToString("dd/MM/yyyy");
+                    model.DataRegistro = Convert.ToDateTime(reader["DataRegistro"]).ToString("dd/MM/yyyy");
                     model.Descontos = reader["Descontos"].ToString();
                     model.TotalBruto = reader["TotalBruto"].ToString();
                 }

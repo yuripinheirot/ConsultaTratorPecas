@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ConsultaTratorPecas.PedidoProduto;
 using ConsultaTratorPecas.Estoque;
 using Microsoft.Office.Interop.Excel;
+using System.IO;
 
 
 namespace ConsultaTratorPecas.Main
@@ -71,6 +72,7 @@ namespace ConsultaTratorPecas.Main
                 MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public void AtualizaDgvPedido()
         {
             string cliente()
@@ -88,79 +90,37 @@ namespace ConsultaTratorPecas.Main
             data.AtualizaDgvPedido(dgvPedidos, cliente(),
                 Convert.ToDateTime(tbxDataIni.Text).ToString("yyyy-MM-dd"),
                                           Convert.ToDateTime(tbxDataFin.Text).ToString("yyyy-MM-dd"));
+            
             lblPedidosEnc.Text = "Pedidos encontrados: " + dgvPedidos.RowCount;
             lblValorTotal.Text = "Valor total: " + dgvPedidos.Rows.Cast<DataGridViewRow>().Sum(p => Convert.ToDecimal(p.Cells[4].Value)).ToString("N2");
+            
             if (dgvPedidos.RowCount == 0)
             {
                 MessageBox.Show("Nenhum registro encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
-        public void AtualizaDgvPdtCompra()
+        public void atualizaDgvPdtCompra2()
         {
-            string fornecedor()
+            dgvPdtCompra.DataSource = itemsVendaTableAdapter.GetData(Convert.ToDecimal(dgvPedidos.CurrentRow.Cells[0].Value.ToString()));
+        }
+        public void atualizaDgvOrcamento()
+        {
+            string idCliente()
             {
-                if (string.IsNullOrWhiteSpace(tbxFornecedor.Text))
+                if (string.IsNullOrWhiteSpace(tbxIdClienteOrc.Text))
                 {
                     return null;
                 }
                 else
                 {
-                    return " and pdt.fornecedor = " + tbxFornecedor.Text;
+                    return "and orc.cliente = " + tbxIdClienteOrc.Text;
                 }
             }
-            string grupo()
-            {
-                if (string.IsNullOrWhiteSpace(tbxGrupo.Text))
-                {
-                    return null;
-                }
-                else
-                {
-                    return " and pdt.grupo in ( " + tbxGrupo.Text.Substring(0, tbxGrupo.TextLength - 1) + ")";
-                }
-            }
-
-            try
-            {
-                data.AtualizaDgvPdtCompra(dgvPdtCompra,
-                                          grupo(),
-                                          fornecedor(),
-                                          Convert.ToDateTime(tbxDataIniEst.Text).ToString("yyyy-MM-dd"),
-                                          Convert.ToDateTime(tbxDataFinEst.Text).ToString("yyyy-MM-dd"));
-                                          //Convert.ToDateTime(tbxDataIniEst.Text).ToString("dd.MM.yyyy"),
-                                          //Convert.ToDateTime(tbxDataFinEst.Text).ToString("dd.MM.yyyy"));
-                try
-                {
-                    if (dgvPdtCompra.RowCount > 0)
-                    {
-                        //dgvPdtCompra.Rows.Cast<DataGridViewRow>().ToList().ForEach(p => p.Cells["estEcoDataGridViewTextBoxColumn"].Value = data.EstoqueEco(p.Cells[0].Value.ToString()));
-                        data.EstoqueEco2(dgvPdtCompra);
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message, "Erro ao buscar estoque do Eco", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-
-
-                if (dgvPdtCompra.RowCount < 1)
-                {
-                    MessageBox.Show("Nenhum registro encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-                lblCompras.Text = "Compras encontradas: " + dgvPdtCompra.RowCount;
-
-            }
-            catch (Exception e)
-            {
-
-                throw e;
-            }
-
-
-
+            data.AtualizaDgvOrcamento(dgvOrcamento, idCliente(), tbxDataIniOrc.Value.ToShortDateString(), tbxDataFinOrc.Value.ToShortDateString());
+        }
+        public void atualizaDgvPdtOrcamento()
+        {
+            data.AtualizaDgvPdtOrcamento(dgvProdutosOrc, dgvOrcamento.CurrentRow.Cells[0].Value.ToString());
         }
 
         //inicializadores
@@ -198,6 +158,7 @@ namespace ConsultaTratorPecas.Main
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+
         }
 
         private void TbxIdCliente_KeyDown(object sender, KeyEventArgs e)
@@ -243,7 +204,7 @@ namespace ConsultaTratorPecas.Main
 
         private void BtnPesquisarEst_Click(object sender, EventArgs e)
         {
-            AtualizaDgvPdtCompra();
+            atualizaDgvPdtCompra2();
 
         }
 
@@ -308,6 +269,21 @@ namespace ConsultaTratorPecas.Main
 
                 MessageBox.Show(er.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSairOrc_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnPesquisarOrc_Click(object sender, EventArgs e)
+        {
+            atualizaDgvOrcamento();
+        }
+
+        private void dgvOrcamento_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            atualizaDgvPdtOrcamento();
         }
     }
 }

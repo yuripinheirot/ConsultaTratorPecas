@@ -108,6 +108,9 @@
       <DependentUpon>frmMainFornecedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\data.cs" />
+    <Compile Include="Main\dsDgvPedidos.cs">
+      <DependentUpon>dsDgvPedidos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Main\dsDgvPedidos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +123,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPdtCompa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Main\dsPdtVenda.cs">
+      <DependentUpon>dsPdtVenda.xsd</DependentUpon>
     </Compile>
     <Compile Include="Main\dsPdtVenda.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="Util\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Cliente\dsCliente.xsc">
       <DependentUpon>dsCliente.xsd</DependentUpon>
     </None>

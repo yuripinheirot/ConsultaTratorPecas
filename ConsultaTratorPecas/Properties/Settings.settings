@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Conexao" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data source=YURI\SQLSERVER14;
-Initial Catalog=BD_TRATORPECAS;
+      <Value Profile="(Default)">Data source=YURI;
+Initial Catalog=BD_NAUTICA;
 UID=sa;
-pwd=eco@4067</Value>
+pwd=masterkey</Value>
     </Setting>
     <Setting Name="ConexaoFB" Type="System.String" Scope="User">
       <Value Profile="(Default)">User=SYSDBA;   
@@ -21,6 +21,14 @@ pwd=eco@4067</Value>
  Pooling=true;   
  Packet Size=8192;   
  ServerType=0 ;</Value>
+    </Setting>
+    <Setting Name="BD_NAUTICA" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=yuri;Initial Catalog=BD_NAUTICA;User ID=sa;Password=masterkey&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=yuri;Initial Catalog=BD_NAUTICA;User ID=sa;Password=masterkey</Value>
     </Setting>
   </Settings>
 </SettingsFile>
